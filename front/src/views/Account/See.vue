@@ -23,9 +23,7 @@
 </style>
 
 <script>
-import axios from "axios";
 import InfoDisplayer from "../../components/InfoDisplayer.vue";
-import { adr, header } from "../../plugins/env";
 
 export default {
   components: {
@@ -36,23 +34,6 @@ export default {
       user: JSON.parse(localStorage.getItem("user")),
       posts: [],
     };
-  },
-  mounted() {
-    console.log("sending request");
-    axios({
-      url: adr + "account/see",
-      data: this.user,
-      header: header,
-      method: "POST",
-    })
-      .then((resp) => {
-        console.log(resp);
-        this.message = resp.data.message;
-        setInterval(() => (window.location.href = "/login"), 3000);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
   },
 };
 </script>

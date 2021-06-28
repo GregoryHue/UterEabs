@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Log in with your account</h1>
-    
+
     <v-form v-model="valid" @submit.prevent="login">
       <v-container>
         <v-text-field
@@ -42,9 +42,9 @@ export default {
     user: {
       email: "",
       password: "",
-      token: localStorage.getItem("token")
+      token: localStorage.getItem("token"),
     },
-    message:""
+    message: "",
   }),
 
   methods: {
@@ -61,11 +61,13 @@ export default {
           this.message = resp.data.message;
           localStorage.setItem("token", resp.data.token);
           localStorage.setItem("user", JSON.stringify(resp.data.user));
-          setInterval(() => window.location.href = "/home", 3000)
+          setInterval(() => (window.location.href = "/home"), 3000);
         })
         .catch((err) => {
-          localStorage.removeItem("token"); // if the request fails, remove any possible user token if possible
+          localStorage.removeItem("token");
+          localStorage.removeItem("user");
           console.log(err);
+          this.message = "Credentials invalid " + err.message;
         });
     },
   },

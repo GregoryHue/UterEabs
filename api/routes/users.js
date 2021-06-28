@@ -27,40 +27,50 @@ router.post('/login', function (req, res, next) {
   connection.query(`SELECT * from users WHERE email = ? and password = ?`, [req.body.email, req.body.password], function (err, user_data) {
     if (err) {
       console.log(err)
-      res.json({
-        message: 'Error 1 :' + err,
-        token: '',
-        user:''
-      }).status(400)
+      res.status(400)
+        .json({
+          message: 'Error 1 :' + err,
+          token: '',
+          user: ''
+        })
     } else {
-      var user_token = jwt.sign({ data: req.body.username }, token_secret, { expiresIn: process.env.TOKEN_TIME });
-      connection.query(`UPDATE users SET token = ? WHERE email = ? and password = ?`, [user_token, req.body.email, req.body.password], function (err, data) {
-        if (err) {
-          console.log(err)
-          res.json({
-            message: 'Error 2 :' + err,
+      if (user_data[0]) {
+        var user_token = jwt.sign({ data: req.body.username }, token_secret, { expiresIn: process.env.TOKEN_TIME });
+        connection.query(`UPDATE users SET token = ? WHERE email = ? and password = ?`, [user_token, req.body.email, req.body.password], function (err, data) {
+          if (err) {
+            console.log(err)
+            res.status(400)
+              .json({
+                message: 'Error 2 :' + err,
+                token: '',
+                user: ''
+              })
+          } else {
+            res.status(200)
+              .json({
+                message: 'User logged in',
+                token: user_token,
+                user: user_data[0]
+              })
+          }
+        })
+      } else {
+        res.status(500)
+          .json({
+            message: 'Error 3',
             token: '',
-            user:''
-          }).status(400)
-        } else {
-          res.json({
-            message: 'User logged in',
-            token: user_token,
-            user:user_data[0]
-          }).status(200)
-        }
-      })
+            user: ''
+          })
+      }
     }
   });
-  //});
-
 });
 
 router.post('/signup', function (req, res, next) {
   console.log(req.body)
   var role_id = "";
   var sql = `INSERT INTO users (email, username, password, role, town, street, zip_code)
-            VALUES(?, ?, ?, ?, ?, ?, ?, ?)`;
+            VALUES(?, ?, ?, ?, ?, ?, ?)`;
 
   if (req.body.role == 'Client') {
     role_id = 1;
@@ -71,16 +81,18 @@ router.post('/signup', function (req, res, next) {
   } else if (req.body.role == 'Delivery man') {
     role_id = 4;
   }
-  connection.query(sql, [req.body.email, req.body.username, req.body.password, role_id, user_token, req.body.town, req.body.street, req.body.zip_code], function (err, data) {
+  connection.query(sql, [req.body.email, req.body.username, req.body.password, role_id, req.body.town, req.body.street, req.body.zip_code], function (err, data) {
     if (err) {
       console.log(err)
-      res.json({
-        message: 'Error :' + err,
-      }).status(400)
+      res.status(400)
+        .json({
+          message: 'Error :' + err,
+        })
     } else {
-      res.json({
-        message: 'User added, try to log in now',
-      }).status(200)
+      res.status(200)
+        .json({
+          message: 'User added, try to log in now',
+        })
     }
   });
 });
