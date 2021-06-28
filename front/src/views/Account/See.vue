@@ -4,7 +4,7 @@
     <div>
       <div class="info-container">
         <InfoDisplayer
-          :label="String('Restaurant\'s name')"
+          :label="String('Username')"
           :value="user.username"
         />
         <InfoDisplayer :label="String('Town')" :value="user.town" />
@@ -32,7 +32,6 @@ export default {
   data() {
     return {
       user: JSON.parse(localStorage.getItem("user")),
-      posts: [],
     };
   },
 };

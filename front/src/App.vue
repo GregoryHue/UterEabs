@@ -92,7 +92,7 @@ export default {
       localStorage.removeItem("token");
       localStorage.removeItem("user");
       this.token_is_valid = false;
-      setInterval(() => (window.location.href = "/login"), 3000);
+      setInterval(() => (window.location.href = "/login"), 1000);
       this.message = "Loging out . . .";
     },
   },
