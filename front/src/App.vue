@@ -2,16 +2,61 @@
   <v-app>
     <v-app-bar app color="primary" dark>
       <div v-if="token_is_valid" class="resto-nav-bar">
-        <router-link to="/account">
-          <v-icon>{{ svgPath }}</v-icon></router-link
-        >
-        <router-link to="/home">Home</router-link>
-        <router-link to="/articles">Articles</router-link>
-        <router-link to="/menus">Menus</router-link>
-        <router-link to="/orders">Orders</router-link>
-        <router-link to="/deliveries">Deliveries</router-link>
-        <router-link to="/stats">Stats</router-link>
-        <router-link to="/share">Share</router-link>
+        <!--Final user-->
+        <span v-if="user.role == 1"> 
+          <router-link to="/account">
+            <v-icon>{{ svgPath }}</v-icon></router-link
+          >
+          <router-link to="/home">Home</router-link>
+
+
+        </span>
+        
+        <!--Restaurateur user-->
+        <span v-if="user.role == 2">
+          <router-link to="/account">
+            <v-icon>{{ svgPath }}</v-icon></router-link
+          >
+          <router-link to="/home">Home</router-link>
+          <router-link to="/articles">Articles</router-link>
+          <router-link to="/menus">Menus</router-link>
+          <router-link to="/orders">Orders</router-link>
+          <router-link to="/deliveries">Deliveries</router-link>
+          <router-link to="/stats">Stats</router-link>
+          <router-link to="/share">Share</router-link>
+        </span>
+        
+        <!--Delivery user-->
+        <span v-if="user.role == 3">
+          <router-link to="/account">
+            <v-icon>{{ svgPath }}</v-icon></router-link
+          >
+          <router-link to="/home">Home</router-link>
+
+
+        </span>
+
+        
+        <!--Dev user-->
+        <span v-if="user.role == 4">
+          <router-link to="/account">
+            <v-icon>{{ svgPath }}</v-icon></router-link
+          >
+          <router-link to="/home">Home</router-link>
+
+          
+        </span>
+
+        
+        <!--Admin user-->
+        <span v-if="user.role == 5">
+          <router-link to="/account">
+            <v-icon>{{ svgPath }}</v-icon></router-link
+          >
+          <router-link to="/home">Home</router-link>
+
+          
+        </span>
 
         <v-btn class="logout-button" color="error" v-on:click="logout"
           >Log out</v-btn
@@ -25,7 +70,7 @@
 
     <v-main>
       <div class="main-window">
-        <router-view  />
+        <router-view />
         <h1>{{ message }}</h1>
         <h5>token : {{ token }}</h5>
         <h5>token_is_valid : {{ token_is_valid }}</h5>
@@ -66,7 +111,7 @@
 <script>
 import jwt from "jsonwebtoken";
 import { mdiAccount } from "@mdi/js";
-import { jwt_key } from './plugins/env'
+import { jwt_key } from "./plugins/env";
 
 export default {
   name: "App",
@@ -79,8 +124,8 @@ export default {
         var decoded = jwt.verify(token, jwt_key);
         this.token_is_valid = true;
       } catch (err) {
-        console.log(err)
-        console.log(decoded)
+        console.log(err);
+        console.log(decoded);
         this.token_is_valid = false;
         //problem : reload non-stop
         //window.location.href = "/login"
@@ -97,6 +142,7 @@ export default {
     },
   },
   data: () => ({
+    user: JSON.parse(localStorage.getItem("user")),
     token_is_valid: false,
     message: "",
     svgPath: mdiAccount,
