@@ -59,7 +59,7 @@ const routes = [
         component: Art_Create
       },
       {
-        path: 'modify',
+        path: 'modify/:id',
         component: Art_Modify
       },
       {

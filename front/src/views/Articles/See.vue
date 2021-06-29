@@ -24,15 +24,35 @@
 </style>
 
 <script>
+import axios from 'axios';
+import { adr, header } from "../../plugins/env";
 import FoodCards from "../../components/FoodCard.vue";
 
 export default {
   components: {
     FoodCards,
   },
+  mounted() {
+      axios({
+        url: adr + "articles/see",
+        data: {
+          owner_id: this.user.id,
+        },
+        header: header,
+        method: "POST",
+      })
+        .then((resp) => {
+          console.log(resp);
+          this.products = resp.data
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+  },
 
   data() {
     return {
+      user : JSON.parse(localStorage.getItem("user")),
       products: '',
     };
   },

@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-auto" max-width="250" max-height="300">
+  <v-card class="mx-auto" max-width="250" max-height="350">
     <template slot="progress">
       <v-progress-linear
         color="deep-purple"
@@ -8,9 +8,7 @@
       ></v-progress-linear>
     </template>
 
-    <a :href="redirect">
-      <v-img height="150" :src="data.img"></v-img>
-    </a>
+    <v-img height="150" :src="data.img"></v-img>
 
     <v-card-title>{{ data.food_name }}</v-card-title>
 
@@ -18,16 +16,22 @@
       <v-row align="center" class="mx-0">
         <div class="grey--text">{{ data.price }} €</div>
       </v-row>
+    <v-icon color="red" class="delete-icon" @click="deleteItem(data._id)"> {{ svgPath }} </v-icon>
 
       <br />
       <div class="card-description">
         {{ data.description }}
       </div>
     </v-card-text>
+    
   </v-card>
 </template>
 
 <style>
+.delete-icon {
+  float: right;
+}
+
 .card-description {
   white-space: nowrap;
   overflow: hidden;
@@ -36,13 +40,37 @@
 </style>
 
 <script>
+import axios from "axios";
+import { adr, header } from "../plugins/env";
+import { mdiDeleteForever } from "@mdi/js";
+
 export default {
-  name: "FoodCard",
-  data() {
-    return {
-      redirect: "modify/" + this.data._id,
-    };
+  methods: {
+    deleteItem: function (id) {
+      if (confirm("Do you really want to delete?")) {
+        axios({
+          url: adr + "articles/delete",
+          data: {
+            _id: id,
+          },
+          header: header,
+          method: "POST",
+        })
+          .then((resp) => {
+            console.log(resp);
+            window.location.href = "/articles/see";
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+    },
   },
+
+  data: () => ({
+    svgPath: mdiDeleteForever,
+  }),
+  name: "FoodCardDelete",
   props: {
     data: {
       _id: {
