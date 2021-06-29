@@ -4,7 +4,6 @@
     <div class="account-nav-bar">
       <router-link to="/menus/create">Create</router-link>
       <router-link to="/menus/see">See</router-link>
-      <router-link to="/menus/modify">Modify</router-link>
       <router-link to="/menus/delete">Delete</router-link>
     </div>
     <router-view />

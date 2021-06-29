@@ -92,7 +92,7 @@ const routes = [
         component: Men_Create
       },
       {
-        path: 'modify',
+        path: 'modify/:id',
         component: Men_Modify
       },
       {

@@ -34,20 +34,17 @@ router.post('/create', (req, res, next) => {
     ...req.body
   });
   article.save()
-    .then(() => res.status(201).json({ message: 'Object created !' }))
+    .then(() => res.status(201).json({ message: 'Article created !' }))
     .catch(error => res.status(400).json({ error }));
 });
 
 router.post('/modify', (req, res, next) => {
   console.log(req.body)
-
   Article.findByIdAndUpdate({_id: req.body._id}, req.body, function (error, article) {
     if (error) return console.log(error);
     if (!article) return res.status(404).json({message: 'Article can\'t be found.'});
-    res.json({message : 'Object modified !'});
+    res.json({message : 'Article modified !'});
   });
-
-
 });
 
 module.exports = router;

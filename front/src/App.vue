@@ -72,14 +72,17 @@
       <div class="main-window">
         <router-view />
         <h1>{{ message }}</h1>
-        <h5>token : {{ token }}</h5>
-        <h5>token_is_valid : {{ token_is_valid }}</h5>
+        <h5 class="bullshit-info">token : {{ token }} <br> token_is_valid : {{ token_is_valid }}</h5>
       </div>
     </v-main>
   </v-app>
 </template>
 
 <style>
+.bullshit-info{
+  margin-top: 10%;
+}
+
 .resto-nav-bar {
   margin-left: 2%;
   width: 100%;

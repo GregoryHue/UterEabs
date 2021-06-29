@@ -7,9 +7,12 @@
         indeterminate
       ></v-progress-linear>
     </template>
-    <v-img height="150" :src="data.img"></v-img>
 
-    <v-card-title>{{ data.food_name }}</v-card-title>
+    <a :href="redirect">
+      <v-img height="150" :src="data.img"></v-img>
+    </a>
+
+    <v-card-title>{{ data.menu_name }}</v-card-title>
 
     <v-card-text>
       <v-row align="center" class="mx-0">
@@ -34,10 +37,9 @@
 
 <script>
 export default {
-  name: "FoodCardModify",
+  name: "MenuCardModify",
   data() {
     return {
-      isActive: false,
       redirect: "modify/" + this.data._id,
     };
   },
@@ -46,7 +48,7 @@ export default {
       _id: {
         type: Array,
       },
-      food_name: {
+      menu_name: {
         type: Array,
       },
       price: {

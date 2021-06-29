@@ -3,7 +3,7 @@
     <h1>See</h1>
     <div class="articles-displayer">
     <div v-for="product in products" :key="product.id">
-      <FoodCards v-bind:data="product" />
+      <FoodCardModify v-bind:data="product" />
     </div>
     </div>
   </div>
@@ -26,11 +26,11 @@
 <script>
 import axios from 'axios';
 import { adr, header } from "../../plugins/env";
-import FoodCards from "../../components/FoodCard.vue";
+import FoodCardModify from "../../components/FoodCardModify.vue";
 
 export default {
   components: {
-    FoodCards,
+    FoodCardModify,
   },
   mounted() {
       axios({
