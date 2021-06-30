@@ -11,6 +11,9 @@ import Art_Create from '../views/Articles/Create.vue'
 import Art_See from '../views/Articles/See.vue'
 import Art_Modify from '../views/Articles/Modify.vue'
 import Art_Delete from '../views/Articles/Delete.vue'
+import Ord_See from '../views/Orders/See.vue'
+import Ord_Modify from '../views/Orders/Modify.vue'
+import Ord_History from '../views/Orders/History.vue'
 import Deliveries from '../views/Deliveries.vue'
 import Home from '../views/Home.vue'
 import Menus from '../views/Menus.vue'
@@ -104,7 +107,21 @@ const routes = [
   {
     path: '/orders',
     name: 'Orders',
-    component: Orders
+    component: Orders,
+    children: [
+      {
+        path: 'see',
+        component: Ord_See
+      },
+      {
+        path: 'modify/:id',
+        component: Ord_Modify
+      },
+      {
+        path: 'history',
+        component: Ord_History
+      }
+    ]
   },
   {
     path: '/share',

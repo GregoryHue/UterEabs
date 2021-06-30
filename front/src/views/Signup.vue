@@ -76,8 +76,8 @@ export default {
     zipRules: [
       (v) => !!v || "Zip code is required",
       (v) =>
-        (!isNaN(parseFloat(v)) && v >= 10000 && v <= 99999) ||
-        "Zip code must be a number between 10000 and 99999",
+        (!isNaN(parseFloat(v)) && v >= 1 && v <= 99999) ||
+        "Zip code must be a number between 00001 and 99999",
     ],
     emailRules: [
       (v) => !!v || "E-mail is required",

@@ -2,7 +2,7 @@
   <div>
     <h1>Modify</h1>
     <div>
-      <h3>Select at least 2 articles to create a menu</h3>
+      <h3>Select at least 2 articles to modify a menu</h3>
       <div class="articles-selecter">
         <div
           v-for="product in products"
