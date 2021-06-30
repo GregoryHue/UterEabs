@@ -1,40 +1,54 @@
 <template>
   <div>
     <h1>Modify</h1>
-    <v-form v-model="valid" @submit.prevent="modify">
-      <div class="info-container">
-        <v-text-field
-          v-model="item.img"
-          type="text"
-          label="Image url"
-        ></v-text-field>
-        <v-text-field
-          v-model="item.menu_name"
-          type="text"
-          label="Food name"
-        ></v-text-field>
-        <v-text-field
-          v-model="item.price"
-          type="text"
-          label="Price"
-          :rules="priceRules"
-        ></v-text-field>
-        <v-text-field
-          v-model="item.description"
-          type="text"
-          label="Description"
-        ></v-text-field>
-        <v-btn :disabled="!valid" color="success" class="mr-4" type="submit">
-          Modify
-        </v-btn>
-        <h1>{{ message }}</h1>
+    <div>
+      <h3>Select at least 2 articles to create a menu</h3>
+      <div class="articles-selecter">
+        <div
+          v-for="product in products"
+          :key="product.id"
+          :id="product._id"
+          v-on:click="addArticleToList(product._id)"
+        >
+          <FoodCard v-bind:data="product" />
+        </div>
       </div>
-    </v-form>
+
+      <v-form v-model="valid" @submit.prevent="modify">
+        <div class="info-container">
+          <v-text-field
+            v-model="item.img"
+            type="text"
+            label="Image url"
+          ></v-text-field>
+          <v-text-field
+            v-model="item.menu_name"
+            type="text"
+            label="Food name"
+          ></v-text-field>
+          <v-text-field
+            v-model="item.price"
+            type="text"
+            label="Price"
+            :rules="priceRules"
+          ></v-text-field>
+          <v-text-field
+            v-model="item.description"
+            type="text"
+            label="Description"
+          ></v-text-field>
+          <v-btn :disabled="!valid" color="success" class="mr-4" type="submit">
+            Modify
+          </v-btn>
+          <h1>{{ message }}</h1>
+        </div>
+      </v-form>
+    </div>
   </div>
 </template>
 
 <style>
-.info-container{
+.info-container {
   margin-left: calc(50% - 150px);
 }
 </style>
@@ -42,9 +56,29 @@
 <script>
 import axios from "axios";
 import { adr, header } from "../../plugins/env";
+import FoodCard from "../../components/FoodCard.vue";
 
 export default {
+  components: {
+    FoodCard,
+  },
   mounted() {
+    axios({
+      url: adr + "articles/see",
+      data: {
+        owner_id: this.user.id,
+      },
+      header: header,
+      method: "POST",
+    })
+      .then((resp) => {
+        console.log(resp);
+        this.products = resp.data;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
     axios({
       url: adr + "menus/see",
       data: {
@@ -56,6 +90,11 @@ export default {
       .then((resp) => {
         console.log(resp);
         this.item = resp.data[0];
+
+        this.item.l_article.forEach((_id) => {
+          document.getElementById(_id).firstChild.classList.add("food-active");
+          console.log("added " + _id);
+        });
       })
       .catch((err) => {
         console.log(err);
@@ -80,14 +119,56 @@ export default {
           this.message = err;
         });
     },
+
+    addArticleToList: function (_id) {
+      if (this.item.l_article.includes(_id)) {
+        var i = 0;
+        while (i < this.item.l_article.length) {
+          if (this.item.l_article[i] === _id) {
+            this.item.l_article.splice(i, 1);
+            document
+              .getElementById(_id)
+              .firstChild.classList.remove("food-active");
+          } else {
+            ++i;
+          }
+        }
+      } else {
+        this.item.l_article.push(_id);
+        document.getElementById(_id).firstChild.classList.add("food-active");
+      }
+      console.log(this.item.l_article);
+    },
   },
 
+  props: {
+    data: {
+      _id: {
+        type: Array,
+      },
+      food_name: {
+        type: Array,
+      },
+      price: {
+        type: Array,
+      },
+      img: {
+        type: Array,
+      },
+      description: {
+        type: Array,
+      },
+    },
+  },
   data() {
     return {
+      user: JSON.parse(localStorage.getItem("user")),
+      products: "",
       message: "",
       item: {
         img: "",
         menu_name: "",
+        l_article: [],
         price: "",
         description: "",
         owner_id: "",

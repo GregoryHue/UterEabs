@@ -38,5 +38,14 @@ router.post('/create', (req, res, next) => {
     .catch(error => res.status(400).json({ error }));
 });
 
+router.post('/modify', (req, res, next) => {
+  console.log(req.body)
+  Menu.findByIdAndUpdate({_id: req.body._id}, req.body, function (error, menu) {
+    if (error) return console.log(error);
+    if (!menu) return res.status(404).json({message: 'Menu can\'t be found.'});
+    res.json({message : 'Menu modified !'});
+  });
+});
+
 
 module.exports = router;
