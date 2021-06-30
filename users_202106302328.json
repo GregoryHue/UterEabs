@@ -1,0 +1,87 @@
+{
+"users": [
+	{
+		"id" : 1,
+		"email" : "client1@gmail.com",
+		"username" : "client1",
+		"password" : "$2a$10$9ReE9j1hXE0KJgCTcM6Gg.DhHv3Q2ndQLhzBwdOQFFFPIGWdiIx\/C",
+		"role" : 1,
+		"token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjQ5NjE0MjAsImV4cCI6MTYyNTA0NzgyMH0.D80HUJD2-XQVnKheG8BJjNqAIqSXMRBzctdJmQ3KKyM",
+		"created_at" : null,
+		"town" : "AMIENS",
+		"street" : "60, rue de Geneves",
+		"zip_code" : "80090 "
+	},
+	{
+		"id" : 2,
+		"email" : "client2@gmail.com",
+		"username" : "client2",
+		"password" : "$2a$10$9ReE9j1hXE0KJgCTcM6Gg.DhHv3Q2ndQLhzBwdOQFFFPIGWdiIx\/C",
+		"role" : 1,
+		"token" : null,
+		"created_at" : null,
+		"town" : "VILLENEUVE-LA-GARENNE",
+		"street" : "35, place de Miremont",
+		"zip_code" : "92390 "
+	},
+	{
+		"id" : 3,
+		"email" : "restaurant1@gmail.com",
+		"username" : "restaurant1",
+		"password" : "$2a$10$9ReE9j1hXE0KJgCTcM6Gg.DhHv3Q2ndQLhzBwdOQFFFPIGWdiIx\/C",
+		"role" : 2,
+		"token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjUwNzc5MzQsImV4cCI6MTYyNTE2NDMzNH0.uO8FNyI5N-y1rTlLARllMtM9K5jdGMUZbKldPpPNHvE",
+		"created_at" : null,
+		"town" : "Kenner",
+		"street" : "663 Paul Wayne Haggerty Road",
+		"zip_code" : "70065"
+	},
+	{
+		"id" : 4,
+		"email" : "restaurant2@gmail.com",
+		"username" : "restaurant2",
+		"password" : "$2a$10$9ReE9j1hXE0KJgCTcM6Gg.DhHv3Q2ndQLhzBwdOQFFFPIGWdiIx\/C",
+		"role" : 2,
+		"token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjUwNzIyMDUsImV4cCI6MTYyNTE1ODYwNX0.JXSuG5M60mtrtiiDNOOuypGDFb-luY3hNXOKDKgnuDs",
+		"created_at" : null,
+		"town" : "BAGNEUX",
+		"street" : "56, Rue Joseph Vernet",
+		"zip_code" : "92220 "
+	},
+	{
+		"id" : 9,
+		"email" : "delivery1@gmail.com",
+		"username" : "delivery1",
+		"password" : "$2a$10$9ReE9j1hXE0KJgCTcM6Gg.DhHv3Q2ndQLhzBwdOQFFFPIGWdiIx\/C",
+		"role" : 4,
+		"token" : null,
+		"created_at" : null,
+		"town" : "MONTLUÇON",
+		"street" : "39, Avenue des Près",
+		"zip_code" : "15154"
+	},
+	{
+		"id" : 12,
+		"email" : "encrypt1@gmail.com",
+		"username" : "encrypt1",
+		"password" : "$2a$10$9ReE9j1hXE0KJgCTcM6Gg.DhHv3Q2ndQLhzBwdOQFFFPIGWdiIx\/C",
+		"role" : 1,
+		"token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjUwNzcyNjksImV4cCI6MTYyNTE2MzY2OX0.dL4dGzU0ilQtfJo0E4nNgvdco2aeJO9B4GxsAomULW4",
+		"created_at" : null,
+		"town" : "rouen",
+		"street" : "15 rue bidule",
+		"zip_code" : "76000"
+	},
+	{
+		"id" : 13,
+		"email" : "encrypt2@gmail.com",
+		"username" : "encrypt2",
+		"password" : "$2a$10$VjVffZOvwqMQeiETwu.HV.weGP8cWUYmDaQeDCA3hVs1JtFsYwbqG",
+		"role" : 1,
+		"token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjUwNzc0NTgsImV4cCI6MTYyNTE2Mzg1OH0.2-yOl1xUvXiEKRZzNOCkBvOZAI7Speh4WvJBjy4N_l0",
+		"created_at" : null,
+		"town" : "azeaze",
+		"street" : "popop",
+		"zip_code" : "76000"
+	}
+]}
