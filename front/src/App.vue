@@ -14,13 +14,13 @@
         
         <!--Restaurateur user-->
         <span v-if="user.role == 2">
-          <router-link to="/account">
+          <router-link to="/account/see">
             <v-icon>{{ svgPath }}</v-icon></router-link
           >
           <router-link to="/home">Home</router-link>
-          <router-link to="/articles">Articles</router-link>
-          <router-link to="/menus">Menus</router-link>
-          <router-link to="/orders">Orders</router-link>
+          <router-link to="/articles/see">Articles</router-link>
+          <router-link to="/menus/see">Menus</router-link>
+          <router-link to="/orders/see">Orders</router-link>
           <router-link to="/deliveries">Deliveries</router-link>
           <router-link to="/stats">Stats</router-link>
           <router-link to="/share">Share</router-link>

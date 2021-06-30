@@ -50,6 +50,9 @@ import axios from "axios";
 import { adr, header } from "../../plugins/env";
 
 export default {
+  mounted(){
+    this.u_current.password = "";
+  },
   data() {
     return {
       message: "",

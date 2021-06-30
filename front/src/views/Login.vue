@@ -31,6 +31,7 @@ import axios from "axios";
 import { adr, header } from "../plugins/env";
 
 export default {
+
   data: () => ({
     valid: false,
     passwordRules: [(v) => !!v || "Password is required"],

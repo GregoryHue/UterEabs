@@ -1,4 +1,5 @@
 var express = require('express');
+var bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 var mysql = require('mysql')
 var cors = require('cors')
