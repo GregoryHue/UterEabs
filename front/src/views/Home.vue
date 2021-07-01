@@ -18,6 +18,7 @@
   width: 33% !important;
   text-align: center;
   display: block;
+  margin-top: 1%;
   margin-left: auto;
   margin-right: auto;
   box-shadow: 0 0 5px 5px grey;

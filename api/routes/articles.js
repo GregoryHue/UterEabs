@@ -16,6 +16,7 @@ router.post('/see', (req, res, next) => {
   Article.find({
     $or: [{ owner_id: req.body.owner_id }, { _id: req.body._id },]
   }).then(function (articles) {
+    console.log(articles)
     res.send(articles);
   });
 });

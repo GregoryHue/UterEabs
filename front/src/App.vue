@@ -3,15 +3,13 @@
     <v-app-bar app color="primary" dark>
       <div v-if="token_is_valid" class="resto-nav-bar">
         <!--Final user-->
-        <span v-if="user.role == 1"> 
+        <span v-if="user.role == 1">
           <router-link to="/account">
             <v-icon>{{ svgPath }}</v-icon></router-link
           >
           <router-link to="/home">Home</router-link>
-
-
         </span>
-        
+
         <!--Restaurateur user-->
         <span v-if="user.role == 2">
           <router-link to="/account/see">
@@ -25,37 +23,29 @@
           <router-link to="/stats">Stats</router-link>
           <router-link to="/share">Share</router-link>
         </span>
-        
+
         <!--Delivery user-->
         <span v-if="user.role == 3">
           <router-link to="/account">
             <v-icon>{{ svgPath }}</v-icon></router-link
           >
           <router-link to="/home">Home</router-link>
-
-
         </span>
 
-        
         <!--Dev user-->
         <span v-if="user.role == 4">
           <router-link to="/account">
             <v-icon>{{ svgPath }}</v-icon></router-link
           >
           <router-link to="/home">Home</router-link>
-
-          
         </span>
 
-        
         <!--Admin user-->
         <span v-if="user.role == 5">
           <router-link to="/account">
             <v-icon>{{ svgPath }}</v-icon></router-link
           >
           <router-link to="/home">Home</router-link>
-
-          
         </span>
 
         <v-btn class="logout-button" color="error" v-on:click="logout"
@@ -72,15 +62,37 @@
       <div class="main-window">
         <router-view />
         <h1>{{ message }}</h1>
-        <h5 class="bullshit-info">token : {{ token }} <br> token_is_valid : {{ token_is_valid }}</h5>
+        <h5 class="bullshit-info">
+          token : {{ token }} <br />
+          token_is_valid : {{ token_is_valid }}
+        </h5>
+      </div>
+
+      <div class="footer-uber-eats">
+        <h1 class="uber-eats">Uber Eats</h1>
       </div>
     </v-main>
   </v-app>
 </template>
 
 <style>
-.bullshit-info{
-  margin-top: 10%;
+.footer-uber-eats {
+  text-align: center;
+  position: fixed;
+  bottom: 50px;
+  margin-left:40%;
+  width: 20%;
+  z-index: 99;
+}
+
+.uber-eats {
+  text-shadow: 2px 2px rgb(55, 148, 240);
+  color: rgb(20, 20, 20);
+  font-size: 40px;
+}
+
+.bullshit-info {
+  margin-top: 5%;
 }
 
 .resto-nav-bar {
@@ -103,7 +115,6 @@
   margin-top: 2%;
   width: 95%;
   min-height: 800px;
-  /*background:rgb(25, 118, 210);*/
   text-align: center;
   display: block;
   margin-left: auto;

@@ -135,6 +135,7 @@ const routes = [
   },
   {
     path: '/login',
+    alias: '/',
     name: 'Login',
     component: Login
   },
