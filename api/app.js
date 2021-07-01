@@ -25,7 +25,7 @@ mongoose.connect(process.env.DB_MONGO,
         useFindAndModify: false
     })
     .then(() => console.log('MongoDB connected !'))
-    .catch(() => console.log('MongoDB error !'));
+    .catch((err) => console.log('MongoDB error !', err));
 
 app.use(logger('dev'));
 app.use(express.json());

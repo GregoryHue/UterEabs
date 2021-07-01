@@ -1,26 +1,26 @@
 var express = require('express');
 var bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-var mysql = require('mysql')
-var cors = require('cors')
+var jwt = require('jsonwebtoken');
+var mysql = require('mysql');
+var cors = require('cors');
 require('dotenv').config()
 
 var router = express.Router();
 
+router.use(cors())
+
 var connection = mysql.createConnection({
   host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
   database: process.env.DB_DATABASE,
   insecureAuth: true
 })
 
-
 const token_secret = process.env.SECRET_JWT;
 
 connection.connect()
-
-router.use(cors())
 
 router.post('/login', function (req, res, next) {
   console.log(req.body)
@@ -119,6 +119,5 @@ router.post('/signup', function (req, res, next) {
       });
     })
 });
-
 
 module.exports = router;

@@ -1,0 +1,73 @@
+[{
+  "_id": {
+    "$oid": "60db4ade768563816282dfa0"
+  },
+  "menu_name": "Tipycal french",
+  "l_article": [
+    "60dae045007e6e2b2c60ff9c",
+    "60dae056007e6e2b2c60ff9e",
+    "60daeda59a699d404032f477"
+  ],
+  "price": "15.99",
+  "img": "https://www.familysearch.org/blog/en/wp-content/uploads/sites/2/2020/07/french-meal-from-above.jpg",
+  "description": "Just a french dinner",
+  "owner_id": 3
+},{
+  "_id": {
+    "$oid": "60db5a87ae347140886a0e34"
+  },
+  "l_article": [
+    "60dae00e007e6e2b2c60ff98",
+    "60dadd41bc27df094c541fec",
+    "60dadcd1bc27df094c541fe9"
+  ],
+  "img": "https://www.azamara.com/sites/default/files/heros/gettyimages-1066110176.jpg",
+  "menu_name": "Typical japanese food",
+  "price": "25.99",
+  "description": "Sushit and ramen put together.",
+  "owner_id": 3,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60db5b5eae347140886a0e39"
+  },
+  "l_article": [
+    "60dae070007e6e2b2c60ffa0",
+    "60dadcd1bc27df094c541fe9",
+    "60dae056007e6e2b2c60ff9e"
+  ],
+  "img": "https://www.sprinklesandsprouts.com/wp-content/uploads/2021/05/Peri-Peri-Fries-SQ.jpg",
+  "menu_name": "Good fries",
+  "price": "71.99",
+  "description": "Very high quality fries",
+  "owner_id": 3,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60dc295ffa47dd3ad0492947"
+  },
+  "l_article": [
+    "60dae056007e6e2b2c60ff9e",
+    "60dae045007e6e2b2c60ff9c"
+  ],
+  "img": "https://gurunavi.com/en/japanfoodie/article/japanese_bakeries/img/Top-image_Bakery-food.jpg",
+  "menu_name": "Bakery things",
+  "price": "2.09",
+  "description": "",
+  "owner_id": 3,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60dca2b04ee5d33f300e484f"
+  },
+  "l_article": [
+    "60dadfaebc27df094c541fef",
+    "60dae02f007e6e2b2c60ff9a"
+  ],
+  "img": "https://5pmfoodblog.imgix.net/site-images/gdk-uk.jpg",
+  "menu_name": "A kebab and some spring rolls ",
+  "price": "16.59",
+  "description": "",
+  "owner_id": 4,
+  "__v": 0
+}]

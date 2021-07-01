@@ -1,0 +1,44 @@
+version: '3.8'
+
+services: 
+  mysqldb:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: mdptrocool
+      MYSQL_DATABASE: uber_eats
+    ports:
+      - 3307:3307
+    volumes: 
+      - db-config:/etc/mysql
+      - db-data:/var/lib/mysql
+      - ./db/backup/files/:/data_backup/data
+
+  app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: api
+    depends_on:
+      - mysqldb
+    stdin_open: true
+    tty: true
+    ports:
+      - 3000:3000
+    
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: mdptrocool
+    volumes:
+      - .data:/data/db
+      - ./db/backup/files/:/data_backup/data
+
+
+volumes: 
+  db-config:
+  db-data:
