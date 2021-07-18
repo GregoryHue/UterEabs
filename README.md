@@ -5,7 +5,7 @@
 The API works with Docker, get into the api folder and run :
 
 ```bash
-docker compose build | docker compose up
+docker-compose build | docker-compose up -d --remove-orphans
 ```
 This will also run the Mongo database and MySQL database. You have to run this command for every change on the API.
 
