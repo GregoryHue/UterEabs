@@ -13,6 +13,14 @@ Both databases on both containers will be empty (which might makes the API crash
 
 ## Import data into MySQL container and fix issues
 
+### Import data MySQL
+
+Open the MySQL container CLI, then run this command :
+
+```bash
+mysql -u root -p uber_eats < data_host/data/database.sql
+```
+
 ### "code: 'ER_NOT_SUPPORTED_AUTH_MODE', errno: 1251,"
 
 Get into the MySQL container CLI, then run this command :
@@ -21,14 +29,6 @@ Get into the MySQL container CLI, then run this command :
 mysql -u root -p mysql -e " ALTER USER 'root'@'localhost' IDENTIFIED BY 'mdptrocool'; 
                             ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'mdptrocool';
                             FLUSH PRIVILEGES;"
-```
-
-### Import data MySQL
-
-Open the MySQL container CLI, then run this command :
-
-```bash
-mysql -u root -p uber_eats < data_host/data/database.sql
 ```
 
 ## Import data into MongoDB container and fix issues
