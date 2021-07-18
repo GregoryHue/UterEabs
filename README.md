@@ -22,17 +22,12 @@ flush privileges;
 
 ## API
 
-To start the api, first, install the dependencies with :
+The API works with Docker, get into the api folder and run :
 
-```Node
-npm install
+```Docker
+docker compose build | docker compose up
 ```
-
-then run it with :
-
-```Node
-nodemon start
-```
+This will also run the Mongo database and MySQL database 
 
 ## Front
 
