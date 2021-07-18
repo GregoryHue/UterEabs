@@ -18,7 +18,7 @@ Both databases on both containers will be empty (which might makes the API crash
 Get into the container CLI, run mysql, then run this command :
 
 ```sql
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'mdptrocool'
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'mdptrocool';
 ```
 
 ## Import data into MongoDB container and fix issues
