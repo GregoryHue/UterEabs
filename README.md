@@ -1,7 +1,10 @@
 ##### Table of Contents  
 [API](#API) 
+
 [Databases](#Databases) 
+
 [Front](#Front) 
+
 [Errors](#Errors) 
 
 
