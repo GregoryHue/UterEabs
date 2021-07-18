@@ -26,6 +26,7 @@ router.post('/login', function (req, res, next) {
   console.log(req.body)
 
   connection.query(`SELECT * from users WHERE email = ?`, [req.body.email], function (err, user_data) {
+    if(err) return res.status(401)
     bcrypt.compare(req.body.password, user_data[0].password).then((valid) => {
       if (!valid) {
         return res.status(401).json({

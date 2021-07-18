@@ -3,7 +3,6 @@ version: '3.8'
 services: 
   mysqldb:
     image: mysql
-    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: mdptrocool
       MYSQL_DATABASE: uber_eats
