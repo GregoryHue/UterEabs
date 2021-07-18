@@ -48,7 +48,7 @@ npm run serve
 
 ## Errors
 
-###"code: 'ER_NOT_SUPPORTED_AUTH_MODE', errno: 1251,"
+### "code: 'ER_NOT_SUPPORTED_AUTH_MODE', errno: 1251,"
 
 Get into the MySQL container CLI, then run this command :
 
