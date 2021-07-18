@@ -1,8 +1,8 @@
 # ProjectUberEat
 
-## Database
+## MySQL
 
-To import the sql database, open CMD as admin :
+To import the sql database, use the .sql file provided. Open CMD as admin and get into your MySQL folder (typically "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\MySQL"), then import the database using this command:
 
 `
 mysql -u root -p uber_eats < D:\Dev\Project\database.sql
