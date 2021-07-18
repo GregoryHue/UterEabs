@@ -1,5 +1,5 @@
 var express = require('express');
-var mysql = require('mysql')
+var mysql = require('mysql2')
 var ObjectId = require('mongodb').ObjectID;
 const Order = require('../models/order');
 const Menu = require('../models/menu');
@@ -16,7 +16,7 @@ var connection = mysql.createConnection({
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
   database: process.env.DB_DATABASE,
-  insecureAuth: true
+  insecureAuth: process.env.INSECURE_AUTH
 })
 
 
