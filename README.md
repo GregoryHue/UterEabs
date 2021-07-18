@@ -23,7 +23,7 @@ mysql -u root -p mysql -e " ALTER USER 'root'@'localhost' IDENTIFIED BY 'mdptroc
                             FLUSH PRIVILEGES;"
 ```
 
-### Import data
+### Import data MySQL
 
 Open the MySQL container CLI, then run this command :
 
@@ -32,6 +32,14 @@ mysql -u root -p uber_eats < data_host/data/database.sql
 ```
 
 ## Import data into MongoDB container and fix issues
+
+### Import data MongoDB
+
+Open the MongoDB container CLI, then run this command several time, make sure to change the -c and --file parameters for each collection/json file. (articles, menus, orders):
+
+```bash
+mongoimport -d uber_eats -c [CollectionToChange] --authenticationDatabase admin --username root --password mdptrocool --file /data_host/data/[FileToChange].json  --jsonArray
+```
 
 ## Front
 
