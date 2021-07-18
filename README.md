@@ -23,6 +23,14 @@ mysql -u root -p mysql -e " ALTER USER 'root'@'localhost' IDENTIFIED BY 'mdptroc
                             FLUSH PRIVILEGES;"
 ```
 
+### Import data
+
+Copy the .sql file in the folder /api/.mysql_data/, then open the MySQL container CLI, then run this command :
+
+```bash
+mysql -u root -p uber_eats < data_host/data/database.sql
+```
+
 ## Import data into MongoDB container and fix issues
 
 ## Front
