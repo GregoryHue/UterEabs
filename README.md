@@ -1,9 +1,9 @@
 ##### Table of Contents  
-[Headers](#headers)  
-[Emphasis](#emphasis)  
-...snip...    
-<a name="headers"/>
-## Headers
+[API](#API) 
+[Databases](#Databases) 
+[Front](#Front) 
+[Errors](#Errors) 
+
 
 
 # ProjectUberEat
@@ -19,9 +19,9 @@ This will also run the Mongo database and MySQL database. You have to run this c
 
 Both databases on both containers will be empty (which might makes the API crash), you need to import the data with the .json and .sql files provided.
 
-## Import data into MySQL
+## Databases
 
-### Import data MySQL
+### Import data into MySQL
 
 Open the MySQL container CLI, then run this command :
 
@@ -30,9 +30,8 @@ mysql -u root -p uber_eats < data_host/data/database.sql
 ```
 
 
-## Import data into MongoDB
+### Import data into MongoDB
 
-### Import data MongoDB
 
 Open the MongoDB container CLI, then run this command several time, make sure to change the -c and --file parameters for each collection/json file. (articles, menus, orders):
 
