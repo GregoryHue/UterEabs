@@ -1,3 +1,5 @@
+# ProjectUberEat
+
 ##### Table of Contents  
 [API](#API) 
 
@@ -6,10 +8,6 @@
 [Front](#Front) 
 
 [Errors](#Errors) 
-
-
-
-# ProjectUberEat
 
 ## API
 
