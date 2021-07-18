@@ -25,7 +25,7 @@ mysql -u root -p mysql -e " ALTER USER 'root'@'localhost' IDENTIFIED BY 'mdptroc
 
 ### Import data
 
-Copy the .sql file in the folder /api/.mysql_data/, then open the MySQL container CLI, then run this command :
+Open the MySQL container CLI, then run this command :
 
 ```bash
 mysql -u root -p uber_eats < data_host/data/database.sql
