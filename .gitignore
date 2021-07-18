@@ -4,3 +4,5 @@ node_modules/
 jspm_packages/
 
 .data/
+.mongo_data/
+.mysql_data/

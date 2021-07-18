@@ -7,11 +7,12 @@ services:
       MYSQL_ROOT_PASSWORD: mdptrocool
       MYSQL_DATABASE: uber_eats
     ports:
-      - 3307:3307
+      - 3307:3306
     volumes: 
-      - db-config:/etc/mysql
-      - db-data:/var/lib/mysql
-      - ./db/backup/files/:/data_backup/data
+      - .mysql_data/:/data_host/data
+    networks:
+      vpcbr:
+        ipv4_address: 10.5.0.3
 
   app:
     build:
@@ -24,19 +25,29 @@ services:
     tty: true
     ports:
       - 3000:3000
+    networks:
+      vpcbr:
+        ipv4_address: 10.5.0.6
     
   mongo:
     image: mongo
     ports:
-      - "27017:27017"
+      - "27020:27017"
+    networks:
+      vpcbr:
+        ipv4_address: 10.5.0.2
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: mdptrocool
     volumes:
-      - .data:/data/db
-      - ./db/backup/files/:/data_backup/data
+      - .mongo_data/:/data_host/data
 
-
-volumes: 
-  db-config:
-  db-data:
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.5.0.0/16
+          gateway: 10.5.0.1
+ 
