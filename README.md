@@ -21,6 +21,12 @@ Get into the container CLI, run mysql, then run this command :
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'mdptrocool';
 ```
 
+then
+
+```sql
+flush privileges;
+```
+
 ## Import data into MongoDB container and fix issues
 
 ## Front
