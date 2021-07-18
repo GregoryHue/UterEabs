@@ -11,9 +11,17 @@ This will also run the Mongo database and MySQL database. You have to run this c
 
 Both databases on both containers will be empty (which might makes the API crash), you need to import the data with the .json and .sql files provided.
 
-## Import data into MySQL container
+## Import data into MySQL container and fix issues
 
-## Import data into MongoDB container
+### "code: 'ER_NOT_SUPPORTED_AUTH_MODE', errno: 1251,"
+
+Get into the container CLI, run mysql, then run this command :
+
+```sql
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'mdptrocool'
+```
+
+## Import data into MongoDB container and fix issues
 
 ## Front
 
