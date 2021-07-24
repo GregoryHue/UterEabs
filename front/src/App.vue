@@ -19,9 +19,6 @@
           <router-link to="/articles/see">Articles</router-link>
           <router-link to="/menus/see">Menus</router-link>
           <router-link to="/orders/see">Orders</router-link>
-          <router-link to="/deliveries">Deliveries</router-link>
-          <router-link to="/stats">Stats</router-link>
-          <router-link to="/share">Share</router-link>
         </span>
 
         <!--Delivery user-->

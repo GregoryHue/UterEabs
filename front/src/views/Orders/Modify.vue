@@ -105,7 +105,7 @@ export default {
   },
   mounted() {
     axios({
-      url: adr + "orders/get/users/single",
+      url: adr + "orders/get/actors",
       data: {
         _id: this.$route.params.id,
       },

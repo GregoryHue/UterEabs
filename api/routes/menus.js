@@ -1,51 +1,17 @@
 var express = require('express');
-var express = require('express');
-const jwt = require('jsonwebtoken');
-const Menu = require('../models/menu');
 var cors = require('cors')
-require('dotenv').config()
-
+const MenuController = require("../controllers/MenuController");
 
 var router = express.Router();
 
 router.use(cors())
 
-router.post('/see', (req, res, next) => {
-  console.log(req.body)
+router.post('/create',MenuController.CreateMenus);
 
-  Menu.find({
-    $or: [{ owner_id: req.body.owner_id }, { _id: req.body._id },]
-  }).then(function (menus) {
-    res.send(menus);
-  });
-});
+router.post('/see', MenuController.GetMenus);
 
-router.post('/delete', (req, res, next) => {
-  console.log(req.body)
-  Menu.deleteOne({ _id: req.body._id }).then(function (menus) {
-    res.json({ message: '' + req.body.menu_name + ' deleted' })
-  });
-});
+router.post('/modify', MenuController.ModifyMenus);
 
-router.post('/create', (req, res, next) => {
-  console.log(req.body)
-  delete req.body._id;
-  const menu = new Menu({
-    ...req.body
-  });
-  menu.save()
-    .then(() => res.status(201).json({ message: 'Menu created !' }))
-    .catch(error => res.status(400).json({ error }));
-});
-
-router.post('/modify', (req, res, next) => {
-  console.log(req.body)
-  Menu.findByIdAndUpdate({_id: req.body._id}, req.body, function (error, menu) {
-    if (error) return console.log(error);
-    if (!menu) return res.status(404).json({message: 'Menu can\'t be found.'});
-    res.json({message : 'Menu modified !'});
-  });
-});
-
+router.post('/delete', MenuController.DeleteMenus);
 
 module.exports = router;

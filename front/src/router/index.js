@@ -14,7 +14,6 @@ import Art_Delete from '../views/Articles/Delete.vue'
 import Ord_See from '../views/Orders/See.vue'
 import Ord_Modify from '../views/Orders/Modify.vue'
 import Ord_History from '../views/Orders/History.vue'
-import Deliveries from '../views/Deliveries.vue'
 import Home from '../views/Home.vue'
 import Menus from '../views/Menus.vue'
 import Men_Create from '../views/Menus/Create.vue'
@@ -22,8 +21,6 @@ import Men_See from '../views/Menus/See.vue'
 import Men_Modify from '../views/Menus/Modify.vue'
 import Men_Delete from '../views/Menus/Delete.vue'
 import Orders from '../views/Orders.vue'
-import Share from '../views/Share.vue'
-import Stats from '../views/Stats.vue'
 
 Vue.use(VueRouter)
 
@@ -72,11 +69,6 @@ const routes = [
     ]
   },
   {
-    path: '/deliveries',
-    name: 'Deliveries',
-    component: Deliveries
-  },
-  {
     path: '/home',
     name: 'Home',
     component: Home
@@ -122,16 +114,6 @@ const routes = [
         component: Ord_History
       }
     ]
-  },
-  {
-    path: '/share',
-    name: 'Share',
-    component: Share
-  },
-  {
-    path: '/stats',
-    name: 'Stats',
-    component: Stats
   },
   {
     path: '/login',

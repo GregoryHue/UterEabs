@@ -1,77 +1,13 @@
 var express = require('express');
-var bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-var mysql = require('mysql2')
 var cors = require('cors')
-require('dotenv').config()
+const UserController = require('../controllers/UserAccountController');
 
 var router = express.Router();
 
-var connection = mysql.createConnection({
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_DATABASE,
-  insecureAuth: process.env.INSECURE_AUTH
-})
-
-
-connection.connect()
-
-
 router.use(cors())
 
-router.post('/modify', function (req, res, next) {
-  console.log(req.body)
-  bcrypt.hash(req.body.password, 10).then(
-    (hash) => {
-      var sql = `UPDATE users SET username = ?, password = ?, town = ?, street = ?, zip_code = ? WHERE id = ?;`;
-      connection.query(sql, [req.body.username, hash, req.body.town, req.body.street, req.body.zip_code, req.body.id,], function (err, data) {
-        if (err) {
-          console.log(err)
-          res.json({
-            user: '',
-            message: 'Error 1:' + err,
-          }).status(400)
-        } else {
-          connection.query(`SELECT * FROM users WHERE id = ?`, [req.body.id], function (err, user_data) {
-            if (err) {
-              console.log(err)
-              res.status(400)
-                .json({
-                  message: 'Error 2 :' + err,
-                  user: ''
-                })
-            } else {
-              res.status(200)
-                .json({
-                  message: 'User modified',
-                  user: user_data[0]
-                })
-            }
-          })
-        }
-      });
-    })
-});
+router.post('/modify', UserController.UserModify);
 
-router.post('/delete', function (req, res, next) {
-
-  console.log(req.body)
-  var sql = `DELETE FROM users WHERE id = ?;`;
-  connection.query(sql, [req.body.id], function (err, data) {
-    if (err) {
-      console.log(err)
-      res.json({
-        message: 'Error 1:' + err,
-      }).status(400)
-    } else {
-      res.json({
-        message: 'User deleted, logging out',
-      }).status(200)
-    }
-  });
-});
+router.post('/delete', UserController.UserDelete);
 
 module.exports = router;
