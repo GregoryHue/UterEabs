@@ -34,7 +34,7 @@ mysql -u root -p uber_eats < data_host/data/database.sql
 ### Import data into MongoDB
 
 
-Open the MongoDB container CLI, then run this command several time, make sure to change the -c and --file parameters for each collection/json file. (articles, menus, orders):
+Open the MongoDB container CLI, then run those commands:
 
 ```bash
 mongoimport -d uber_eats -c articles --authenticationDatabase admin --username root --password mdptrocool --file /data_host/data/articles.json  --jsonArray
