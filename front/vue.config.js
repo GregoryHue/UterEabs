@@ -2,7 +2,7 @@ module.exports = {
   devServer: {
     disableHostCheck: true,
   },
-  publicPath: "/",
+  publicPath: "/SiteUberEats/",
   transpileDependencies: [
     'vuetify'
   ],
