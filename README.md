@@ -17,6 +17,8 @@ There is two ways to make this application work :
 
 [Errors](#Errors) 
 
+## Using Docker
+
 ### API
 
 The API works with Docker, get into the api folder and run :
