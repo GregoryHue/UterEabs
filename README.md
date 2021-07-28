@@ -8,6 +8,28 @@ There are two ways to make this application work :
 
 ## API
 
+The `.env` file should look like this:
+```
+# DB Configurations
+DB_HOST=10.5.0.2
+DB_PORT=3306
+DB_USER=root
+DB_PASS=mdptrocool
+DB_DATABASE=uber_eats
+INSECURE_AUTH=true
+
+# DB MONGODB
+DB_MONGO=mongodb://10.5.0.3:27017/uber_eats?authSource=admin
+MONGO_USER=root
+MONGO_PASS=mdptrocool
+
+
+# local runtime configs
+PORT=3000
+SECRET_JWT=09f26e402586e2faa8da4c98a35f1b20d6b033c6097befa8be3486a829587fe2f90a832bd3ff9d42710a4da095a2ce285b009f0c3730cd9b8e1af3eb84df6611
+TOKEN_TIME=1d
+```
+
 The API works with Docker, get into the api folder and run :
 
 ```bash
@@ -36,6 +58,12 @@ mongoimport -d uber_eats -c orders --authenticationDatabase admin --username roo
 ```
 
 ## Front
+
+Make sure the `/front/src/plugins/connection.js` file contains the following variables :
+
+```js
+const adr = 'https://localhost:3000/';
+```
 
 To start the front, first, install the dependencies with :
 
@@ -102,7 +130,7 @@ Make sure the `/front/src/plugins/connection.js` file contains the following var
 const adr = 'https://uber-eats-hrk.herokuapp.com/';
 ```
 
-The front is hosted by [Netlify](https://app.netlify.com/teams/gregoryhue/overview) on a project called `uber-eats-nlf`. Go to their website and log int, click on "New site from Git", then link this very same Github project with it, and configure it this way:
+The front is hosted by [Netlify](https://app.netlify.com/teams/gregoryhue/overview) on a project called `uber-eats-nlf`. Go to their website and log in, click on "New site from Git", then link this very same Github project with it, and configure it this way:
 
 ```
 Base directory : front
