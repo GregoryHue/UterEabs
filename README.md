@@ -2,7 +2,7 @@
 
 There are two ways to make this application work :
 * Locally with the use of Docker. The API and the two databases each running on a different container.
-* By deploying the application online using Heroku and Netlify
+* By deploying the application online using Heroku and Netlify (inspired by [this](https://dev.to/stlnick/how-to-deploy-a-full-stack-mern-app-with-heroku-netlify-ncb))
 
 # Using Docker
 
