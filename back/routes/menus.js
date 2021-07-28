@@ -1,10 +1,7 @@
 var express = require('express');
-var cors = require('cors')
 const MenuController = require("../controllers/MenuController");
 
 var router = express.Router();
-
-router.use(cors())
 
 router.post('/create',MenuController.CreateMenus);
 

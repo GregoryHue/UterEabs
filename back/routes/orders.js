@@ -1,11 +1,8 @@
 
 var express = require("express");
-var cors = require("cors");
 const OrderController = require("../controllers/OrderController");
 
 var router = express.Router();
-
-router.use(cors());
 
 router.post("/get/actors", OrderController.ActorsID);
 
