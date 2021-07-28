@@ -26,7 +26,7 @@
 <script>
 import axios from "axios";
 import { statusConvertToString, statusConvertToColor } from "../plugins/status";
-import { adr, header } from "../plugins/env";
+import { adr, header } from "../plugins/connection";
 
 export default {
   methods: {

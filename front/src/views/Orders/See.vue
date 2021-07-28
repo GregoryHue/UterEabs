@@ -16,7 +16,7 @@
 
 <script>
 import axios from "axios";
-import { adr, header } from "../../plugins/env";
+import { adr, header } from "../../plugins/connection";
 import OrderCard from "../../components/OrderCard.vue";
 
 export default {

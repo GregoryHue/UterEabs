@@ -25,7 +25,7 @@
 
 <script>
 import axios from 'axios';
-import { adr, header } from "../../plugins/env";
+import { adr, header } from "../../plugins/connection";
 import FoodCardDelete from "../../components/FoodCardDelete.vue";
 
 export default {

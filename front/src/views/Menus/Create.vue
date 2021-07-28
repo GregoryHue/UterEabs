@@ -74,7 +74,7 @@
 
 <script>
 import axios from "axios";
-import { adr, header } from "../../plugins/env";
+import { adr, header } from "../../plugins/connection";
 import FoodCard from "../../components/FoodCard.vue";
 
 export default {

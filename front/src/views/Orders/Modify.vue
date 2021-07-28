@@ -69,7 +69,7 @@
 
 <script>
 import axios from "axios";
-import { adr, header } from "../../plugins/env";
+import { adr, header } from "../../plugins/connection";
 import { statusConvertToString } from "../../plugins/status";
 import InfoDisplayer from "../../components/InfoDisplayer.vue";
 import MenuCard from "../../components/MenuCard.vue";
