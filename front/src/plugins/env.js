@@ -1,4 +1,4 @@
-const adr = 'http://localhost:3000/'
+const adr = 'http://shielded-ridge-70614.herokuapp.com/'
 const header = { 
     "Content-Type": "application/x-www-form-urlencoded"
   }
