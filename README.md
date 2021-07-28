@@ -55,11 +55,11 @@ npm run serve
 
 Both databases are hosted online. As they are hosted online, you can skip the databases section.
 
-The Mongo database is hosted for free on the official Mongo website: https://cloud.mongodb.com/v2/610067f01819cf0527e3a4bc.
-The MySQL database is hosted for free on https://remotemysql.com/.
+The Mongo database is hosted for free on the official Mongo website: https://cloud.mongodb.com/v2/610067f01819cf0527e3a4bc. You can access to the MongoDB database and fill it by using the `.json` files provided in /back/.mongo_data.
 
-You can access to the MongoDB database and fill it by using the `.json` files provided in /back/.mongo_data.
-You can access to the MySQL database and fill it by using the `.sql` files provided in /back/.mysql_data.
+The MySQL database is hosted for free on https://remotemysql.com/. You can access to the MySQL database and fill it by using the `.sql` files provided in /back/.mysql_data.
+
+Note: the MySQL database's name is randomly generated, and can't be changed, as oppose to the Docker solution where it's still called `uber_eats`.
 
 ## API
 
