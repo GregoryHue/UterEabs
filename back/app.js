@@ -3,7 +3,6 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var cors = require("cors");
-require("dotenv").config();
 
 const mysql_connection = require("./plugins/mysql");
 const mongo_connection = require("./plugins/mongo");

@@ -56,4 +56,7 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'mdptrocool';
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'mdptrocool';                            FLUSH PRIVILEGES;
+
 -- Dump completed on 2021-07-01 18:08:22

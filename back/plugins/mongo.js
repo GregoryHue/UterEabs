@@ -2,7 +2,7 @@ var mongoose = require("mongoose");
 require("dotenv").config();
 
 var mongo_connection = mongoose
-  .connect(process.env.DB_MONGO, {
+  .connect(process.env.MONGO_CONNECTION, {
     user: process.env.MONGO_USER,
     pass: process.env.MONGO_PASS,
     useNewUrlParser: true,
