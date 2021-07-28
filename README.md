@@ -51,20 +51,30 @@ npm run serve
 
 # Using Heroku and Netlify
 
+## Databases
+
+Both databases are hosted online. As they are hosted online, you can skip the databases section.
+
+The Mongo database is hosted for free on the official Mongo website: https://cloud.mongodb.com/v2/610067f01819cf0527e3a4bc.
+The MySQL database is hosted for free on https://remotemysql.com/.
+
+You can access to the MongoDB database and fill it by using the `.json` files provided in /back/.mongo_data.
+You can access to the MySQL database and fill it by using the `.sql` files provided in /back/.mysql_data.
+
 ## API
 
 The `.env` file should look like this:
 ```
 # DB Configurations
-DB_HOST=remotemysql.com
-DB_PORT=3306
-DB_USER=zX45jDxbVQ
-DB_PASS=8awLraf8zx
-DB_DATABASE=zX45jDxbVQ
-INSECURE_AUTH=true
+MYSQL_HOST=remotemysql.com
+MYSQL_PORT=3306
+MYSQL_USER=zX45jDxbVQ
+MYSQL_PASS=8awLraf8zx
+MYSQL_DATABASE=zX45jDxbVQ
+MYSQL_INSECURE_AUTH=true
 
 # DB MONGODB
-DB_MONGO=mongodb+srv://root:mdptrocool@project.iivmj.mongodb.net/uber_eats?retryWrites=true&w=majority
+MONGO_CONNECTION=mongodb+srv://root:mdptrocool@project.iivmj.mongodb.net/uber_eats?retryWrites=true&w=majority
 MONGO_USER=root
 MONGO_PASS=mdptrocool
 
@@ -74,7 +84,22 @@ SECRET_JWT=09f26e402586e2faa8da4c98a35f1b20d6b033c6097befa8be3486a829587fe2f90a8
 TOKEN_TIME=1d
 ```
 
-## Databases
+The API is hosted by [Heroku](https://dashboard.heroku.com/apps). From the root folder, open the CMD, log into Heroku, add a remote to the Heroku repository, and push the API there, using those commands:
 
+```
+heroku login
+
+heroku git:remote -a uber-eats-hrk
+
+git add . | git commit -m "changing remote" | git subtree push --prefix back heroku main
+```
 
 ## Front
+
+Access to the [Netlify](https://app.netlify.com/teams/gregoryhue/overview) website, and click "New site from Git". Link this same Github project with it, and configure it this way:
+```
+Base directory : front
+Build command : npm run build
+Publish directory : front/dist/
+```
+
