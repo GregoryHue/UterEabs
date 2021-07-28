@@ -6,8 +6,7 @@ There is two ways to make this application work :
 
 ##### Table of Contents
 
-
-[Using Docker](#Using Docker) 
+[Docker](#Docker) 
 
 [API](#API) 
 
