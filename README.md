@@ -1,13 +1,10 @@
 # ProjectUberEat
 
-##### Table of Contents  
-[API](#API) 
-
-[Databases](#Databases) 
-
-[Front](#Front) 
-
-[Errors](#Errors) 
+There are two ways to make this application work :
+* Locally with the use of Docker. The API and the two databases each running on a different container.
+* By deploying the application online using Heroku and Netlify
+* 
+# Using Docker
 
 ## API
 
@@ -22,17 +19,11 @@ Both databases in both containers will be empty (which might makes the API crash
 
 ## Databases
 
-### Import data into MySQL
-
 Open the MySQL container CLI, then run this command :
 
 ```bash
 mysql -u root -p uber_eats < data_host/data/database.sql
 ```
-
-
-### Import data into MongoDB
-
 
 Open the MongoDB container CLI, then run those commands:
 
@@ -58,14 +49,32 @@ then run it with :
 npm run serve
 ```
 
-## Errors
+# Using Heroku and Netlify
 
-### "code: 'ER_NOT_SUPPORTED_AUTH_MODE', errno: 1251,"
+## API
 
-Get into the MySQL container CLI, then run this command :
-
-```bash
-mysql -u root -p mysql -e " ALTER USER 'root'@'localhost' IDENTIFIED BY 'mdptrocool'; 
-                            ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'mdptrocool';
-                            FLUSH PRIVILEGES;"
+The `.env` file should look like this:
 ```
+# DB Configurations
+DB_HOST=remotemysql.com
+DB_PORT=3306
+DB_USER=zX45jDxbVQ
+DB_PASS=8awLraf8zx
+DB_DATABASE=zX45jDxbVQ
+INSECURE_AUTH=true
+
+# DB MONGODB
+DB_MONGO=mongodb+srv://root:mdptrocool@project.iivmj.mongodb.net/uber_eats?retryWrites=true&w=majority
+MONGO_USER=root
+MONGO_PASS=mdptrocool
+
+# local runtime configs
+PORT=3000
+SECRET_JWT=09f26e402586e2faa8da4c98a35f1b20d6b033c6097befa8be3486a829587fe2f90a832bd3ff9d42710a4da095a2ce285b009f0c3730cd9b8e1af3eb84df6611
+TOKEN_TIME=1d
+```
+
+## Databases
+
+
+## Front
