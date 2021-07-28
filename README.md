@@ -1,24 +1,12 @@
 # ProjectUberEat
 
-There is two ways to make this application work :
+There are two ways to make this application work :
 * Locally with the use of Docker. The API and the two databases each running on a different container.
 * By deploying the application online using Heroku and Netlify
+* 
+# Using Docker
 
-##### Table of Contents
-
-[Docker](#Docker) 
-
-[API](#API) 
-
-[Databases](#Databases) 
-
-[Front](#Front) 
-
-[Errors](#Errors) 
-
-## Using Docker
-
-### API
+## API
 
 The API works with Docker, get into the api folder and run :
 
@@ -29,7 +17,7 @@ This will also run the Mongo database and MySQL database. You have to run this c
 
 Both databases in both containers will be empty (which might makes the API crash), you need to import the data with the .json and .sql files provided.
 
-### Databases
+## Databases
 
 Open the MySQL container CLI, then run this command :
 
@@ -47,7 +35,7 @@ mongoimport -d uber_eats -c menus --authenticationDatabase admin --username root
 mongoimport -d uber_eats -c orders --authenticationDatabase admin --username root --password mdptrocool --file /data_host/data/orders.json  --jsonArray
 ```
 
-### Front
+## Front
 
 To start the front, first, install the dependencies with :
 
@@ -61,7 +49,7 @@ then run it with :
 npm run serve
 ```
 
-### Errors
+## Errors
 
 ### "code: 'ER_NOT_SUPPORTED_AUTH_MODE', errno: 1251,"
 
