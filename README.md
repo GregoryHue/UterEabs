@@ -10,19 +10,18 @@ There are two ways to make this application work :
 
 The `.env` file should look like this:
 ```
-# DB Configurations
-DB_HOST=10.5.0.2
-DB_PORT=3306
-DB_USER=root
-DB_PASS=mdptrocool
-DB_DATABASE=uber_eats
-INSECURE_AUTH=true
+# MySQL
+MYSQL_HOST=10.5.0.2
+MYSQL_PORT=3306
+MYSQL_USER=root
+MYSQL_PASS=mdptrocool
+MYSQL_DATABASE=uber_eats
+MYSQL_INSECURE_AUTH=true
 
-# DB MONGODB
-DB_MONGO=mongodb://10.5.0.3:27017/uber_eats?authSource=admin
+# MongoDB
+MONGO_CONNECTION=mongodb://10.5.0.3:27017/uber_eats?authSource=admin
 MONGO_USER=root
 MONGO_PASS=mdptrocool
-
 
 # local runtime configs
 PORT=3000
@@ -93,7 +92,7 @@ Note: the MySQL database's name is randomly generated, and can't be changed, as 
 
 The `.env` file should look like this:
 ```
-# DB Configurations
+# MySQL
 MYSQL_HOST=remotemysql.com
 MYSQL_PORT=3306
 MYSQL_USER=zX45jDxbVQ
@@ -101,7 +100,7 @@ MYSQL_PASS=8awLraf8zx
 MYSQL_DATABASE=zX45jDxbVQ
 MYSQL_INSECURE_AUTH=true
 
-# DB MONGODB
+# MongoDB
 MONGO_CONNECTION=mongodb+srv://root:mdptrocool@project.iivmj.mongodb.net/uber_eats?retryWrites=true&w=majority
 MONGO_USER=root
 MONGO_PASS=mdptrocool
