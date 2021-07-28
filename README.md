@@ -15,7 +15,7 @@ docker-compose build | docker-compose up --remove-orphans
 ```
 This will also run the Mongo database and MySQL database. You have to run this command for every change on the API.
 
-Both databases in both containers will be empty (which might makes the API crash), you need to import the data with the .json and .sql files provided.
+Both databases in both containers will be empty (which might makes the API crash), you need to import the data with the `.json` and `.sql` files provided.
 
 ## Databases
 
@@ -55,9 +55,9 @@ npm run serve
 
 Both databases are hosted online. As they are hosted online, you can skip the databases section.
 
-The Mongo database is hosted for free on the official Mongo website: https://cloud.mongodb.com/v2/610067f01819cf0527e3a4bc. You can access to the MongoDB database and fill it by using the `.json` files provided in /back/.mongo_data.
+The Mongo database is hosted for free on the official Mongo website: https://cloud.mongodb.com/v2/610067f01819cf0527e3a4bc. You can access to the MongoDB database and fill it by using the `.json` files provided in `/back/.mongo_data`.
 
-The MySQL database is hosted for free on https://remotemysql.com/. You can access to the MySQL database and fill it by using the `.sql` files provided in /back/.mysql_data.
+The MySQL database is hosted for free on https://remotemysql.com/. You can access to the MySQL database and fill it by using the `.sql` files provided in `/back/.mysql_data`.
 
 Note: the MySQL database's name is randomly generated, and can't be changed, as oppose to the Docker solution where it's still called `uber_eats`.
 
@@ -84,7 +84,7 @@ SECRET_JWT=09f26e402586e2faa8da4c98a35f1b20d6b033c6097befa8be3486a829587fe2f90a8
 TOKEN_TIME=1d
 ```
 
-The API is hosted by [Heroku](https://dashboard.heroku.com/apps). From the root folder, open the CMD, log into Heroku, add a remote to the Heroku repository, and push the API there, using those commands:
+The API is hosted by [Heroku](https://dashboard.heroku.com/apps) on a project called `uber-eats-hrk`. From the root folder, open the CMD, log into Heroku, add a remote to the Heroku repository, and push the API there, using those commands:
 
 ```
 heroku login
@@ -96,7 +96,14 @@ git add . | git commit -m "changing remote" | git subtree push --prefix back her
 
 ## Front
 
-Access to the [Netlify](https://app.netlify.com/teams/gregoryhue/overview) website, and click "New site from Git". Link this same Github project with it, and configure it this way:
+Make sure the `/front/src/plugins/connection.js` file contains the following variables :
+
+```js
+const adr = 'https://uber-eats-hrk.herokuapp.com/';
+```
+
+The front is hosted by [Netlify](https://app.netlify.com/teams/gregoryhue/overview) on a project called `uber-eats-nlf`. Go to their website and log int, click on "New site from Git", then link this very same Github project with it, and configure it this way:
+
 ```
 Base directory : front
 Build command : npm run build
