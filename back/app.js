@@ -26,8 +26,23 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/", indexRouter);
+app.use(cors({
+    origin: 'https://adoring-edison-1d0990.netlify.app',
+    allowedHeaders: ["Content-Type", "Authorization"]
+}));
 
+app.options('*', cors())
+
+app.all('', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "https://adoring-edison-1d0990.netlify.app");
+    res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Headers', "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    //Auth Each API Request created by user.
+    next();
+});
+
+
+app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/account", accountRouter);
 app.use("/articles", articlesRouter);
@@ -35,19 +50,6 @@ app.use("/menus", menusRouter);
 app.use("/orders", ordersRouter);
 
 
-app.use(function (req, res, next) {
-    // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    // Request methods you wish to allow
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    // Request headers you wish to allow
-    res.setHeader('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token');
-    // Set to true if you need the website to include cookies in the requests sent
-    // to the API (e.g. in case you use sessions)
-    res.setHeader('Access-Control-Allow-Credentials', true);
-    // Pass to next layer of middleware
-    next();
-});
 
 
 module.exports = app;
