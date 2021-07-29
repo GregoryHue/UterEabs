@@ -32,7 +32,7 @@
       />
       <InfoDisplayer
         :label="String('Creation date')"
-        :value="order.created_at"
+        :value="new Date(order.created_at).toUTCString()"
       />
       <InfoDisplayer
         :label="String('Status')"

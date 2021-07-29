@@ -11,7 +11,7 @@
       <b>Client</b> : {{ users.client }} | <b>Delivery</b> :
       {{ users.delivery }} | <b>Status</b> :
       {{ statusConvertToString(data.status) }} | <b>Creation date</b> :
-      {{ data.created_at }}
+      {{ new Date(data.created_at).toUTCString() }}
     </v-card-subtitle>
   </v-card>
 </template>

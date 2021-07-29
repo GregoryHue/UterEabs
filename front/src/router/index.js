@@ -5,12 +5,10 @@ import Signup from '../views/Signup.vue'
 import Account from '../views/Account.vue'
 import Acc_See from '../views/Account/See.vue'
 import Acc_Modify from '../views/Account/Modify.vue'
-import Acc_Delete from '../views/Account/Delete.vue'
 import Articles from '../views/Articles.vue'
 import Art_Create from '../views/Articles/Create.vue'
 import Art_See from '../views/Articles/See.vue'
 import Art_Modify from '../views/Articles/Modify.vue'
-import Art_Delete from '../views/Articles/Delete.vue'
 import Ord_See from '../views/Orders/See.vue'
 import Ord_Single from '../views/Orders/Single.vue'
 import Ord_History from '../views/Orders/History.vue'
@@ -19,7 +17,6 @@ import Menus from '../views/Menus.vue'
 import Men_Create from '../views/Menus/Create.vue'
 import Men_See from '../views/Menus/See.vue'
 import Men_Modify from '../views/Menus/Modify.vue'
-import Men_Delete from '../views/Menus/Delete.vue'
 import Orders from '../views/Orders.vue'
 
 Vue.use(VueRouter)
@@ -38,12 +35,7 @@ const routes = [
         path: 'modify',
         component: Acc_Modify
       },
-      {
-        path: 'delete',
-        component: Acc_Delete
-      }
     ]
-
   },
   {
     path: '/articles',
@@ -62,10 +54,6 @@ const routes = [
         path: 'modify/:id',
         component: Art_Modify
       },
-      {
-        path: 'delete',
-        component: Art_Delete
-      }
     ]
   },
   {
@@ -90,10 +78,6 @@ const routes = [
         path: 'modify/:id',
         component: Men_Modify
       },
-      {
-        path: 'delete',
-        component: Men_Delete
-      }
     ]
   },
   {

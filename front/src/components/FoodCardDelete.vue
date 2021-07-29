@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-auto" max-width="250" max-height="350">
+  <v-card class="mx-auto" max-width="250" max-height="300" :id="data._id">
     <template slot="progress">
       <v-progress-linear
         color="deep-purple"
@@ -8,7 +8,9 @@
       ></v-progress-linear>
     </template>
 
-    <v-img height="150" :src="data.img"></v-img>
+    <a :href="redirect">
+      <v-img height="150" :src="data.img"></v-img>
+    </a>
 
     <v-card-title>{{ data.food_name }}</v-card-title>
 
@@ -16,14 +18,42 @@
       <v-row align="center" class="mx-0">
         <div class="grey--text">{{ data.price }} €</div>
       </v-row>
-    <v-icon color="red" class="delete-icon" @click="deleteItem(data._id)"> {{ svgPath }} </v-icon>
+      <div v-if="isButtonToShow">
+        <v-dialog v-model="openedDialog" width="500">
+          <template v-slot:activator="{ on, attrs }">
+            <v-icon color="red" class="delete-icon" v-bind="attrs" v-on="on">
+              {{ svgPath }}
+            </v-icon>
+          </template>
+
+          <v-card>
+            <v-card-title class="text-h5 grey lighten-2">
+              Article deletion confirmation
+            </v-card-title>
+
+            <v-card-text>
+              Are you sure you want to delete this article ?
+              <br />
+              This action is irreversible.
+            </v-card-text>
+
+            <v-divider></v-divider>
+
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="error" class="mr-4" @click="deleteItem(data._id)">
+                Confirm deletion
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+      </div>
 
       <br />
       <div class="card-description">
         {{ data.description }}
       </div>
     </v-card-text>
-    
   </v-card>
 </template>
 
@@ -45,33 +75,16 @@ import { adr, header } from "../plugins/connection";
 import { mdiDeleteForever } from "@mdi/js";
 
 export default {
-  methods: {
-    deleteItem: function (id) {
-      if (confirm("Do you really want to delete?")) {
-        axios({
-          url: adr + "articles/delete",
-          data: {
-            _id: id,
-          },
-          header: header,
-          method: "POST",
-        })
-          .then((resp) => {
-            console.log(resp);
-            window.location.href = "/articles/see";
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      }
-    },
-  },
-
-  data: () => ({
-    svgPath: mdiDeleteForever,
-  }),
   name: "FoodCardDelete",
+  data() {
+    return {
+      openedDialog: false,
+      svgPath: mdiDeleteForever,
+      redirect: "modify/" + this.data._id,
+    };
+  },
   props: {
+    isButtonToShow: { type: Boolean },
     data: {
       _id: {
         type: Array,
@@ -88,6 +101,26 @@ export default {
       description: {
         type: Array,
       },
+    },
+  },
+  methods: {
+    deleteItem: function(id) {
+      axios({
+        url: adr + "articles/delete",
+        data: {
+          _id: id,
+        },
+        header: header,
+        method: "POST",
+      })
+        .then((resp) => {
+          console.log(resp);
+          document.getElementById(id).parentNode.remove();
+          this.openedDialog = false;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
   },
 };

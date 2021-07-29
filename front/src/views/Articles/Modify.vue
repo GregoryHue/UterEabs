@@ -24,9 +24,44 @@
           type="text"
           label="Description"
         ></v-text-field>
+
+        <v-dialog width="500">
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn color="error" class="mr-4" v-bind="attrs" v-on="on">
+              Delete
+            </v-btn>
+          </template>
+
+          <v-card>
+            <v-card-title class="text-h5 grey lighten-2">
+              Article deletion confirmation
+            </v-card-title>
+
+            <v-card-text>
+              Are you sure you want to delete this article ?
+              <br />
+              This action is irreversible.
+            </v-card-text>
+
+            <v-divider></v-divider>
+
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn
+                color="error"
+                class="mr-4"
+                @click="deleting($route.params.id)"
+              >
+                Confirm deletion
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+
         <v-btn :disabled="!valid" color="success" class="mr-4" type="submit">
           Modify
         </v-btn>
+
         <h1>{{ message }}</h1>
       </div>
     </v-form>
@@ -34,7 +69,7 @@
 </template>
 
 <style>
-.info-container{
+.info-container {
   margin-left: calc(50% - 150px);
 }
 </style>
@@ -44,7 +79,7 @@ import axios from "axios";
 import { adr, header } from "../../plugins/connection";
 
 export default {
-  mounted() {
+  beforeMount() {
     axios({
       url: adr + "articles/see",
       data: {
@@ -62,7 +97,7 @@ export default {
       });
   },
   methods: {
-    modify: function () {
+    modify: function() {
       console.log("sending request");
       axios({
         url: adr + "articles/modify",
@@ -78,6 +113,23 @@ export default {
         .catch((err) => {
           console.log(err);
           this.message = err;
+        });
+    },
+    deleting: function(id) {
+      axios({
+        url: adr + "articles/delete",
+        data: {
+          _id: id,
+        },
+        header: header,
+        method: "POST",
+      })
+        .then((resp) => {
+          console.log(resp);
+          setInterval(() => (window.location.href = "/articles/see"), 2000);
+        })
+        .catch((err) => {
+          console.log(err);
         });
     },
   },

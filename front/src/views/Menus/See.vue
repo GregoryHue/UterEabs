@@ -1,9 +1,14 @@
 <template>
   <div>
     <h1>See</h1>
+    
+    <v-switch
+      v-model="showDeleteButtons"
+      label="Show delete buttons"
+    ></v-switch>
     <div class="articles-displayer">
     <div v-for="product in products" :key="product.id">
-      <MenuCardModify v-bind:data="product" />
+      <MenuCardModify v-bind:data="product" :isButtonToShow="showDeleteButtons"/>
     </div>
     </div>
   </div>
@@ -26,7 +31,7 @@
 <script>
 import axios from 'axios';
 import { adr, header } from "../../plugins/connection";
-import MenuCardModify from "../../components/MenuCardModify.vue";
+import MenuCardModify from "../../components/MenuCardDelete.vue";
 
 export default {
   components: {
@@ -52,6 +57,7 @@ export default {
 
   data() {
     return {
+      showDeleteButtons: false,
       user : JSON.parse(localStorage.getItem("user")),
       products: '',
     };
