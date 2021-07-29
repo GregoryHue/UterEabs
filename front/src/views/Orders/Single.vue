@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Modify</h1>
+    <h1>single</h1>
     <h3>Article</h3>
     <div v-if="article_products.length != 0" class="articles-selecter">
       <div
@@ -105,7 +105,7 @@ export default {
   },
   mounted() {
     axios({
-      url: adr + "orders/get/actors",
+      url: adr + "orders/get/actors/single",
       data: {
         _id: this.$route.params.id,
       },

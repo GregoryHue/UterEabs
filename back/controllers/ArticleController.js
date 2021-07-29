@@ -1,7 +1,6 @@
 var express = require("express");
 const jwt = require("jsonwebtoken");
 const Article = require("../models/ArticleModel");
-var ObjectId = require("mongodb").ObjectID;
 
 const CreateArticles = (req, res, next) => {
   console.log(req.body);

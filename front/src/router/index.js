@@ -12,7 +12,7 @@ import Art_See from '../views/Articles/See.vue'
 import Art_Modify from '../views/Articles/Modify.vue'
 import Art_Delete from '../views/Articles/Delete.vue'
 import Ord_See from '../views/Orders/See.vue'
-import Ord_Modify from '../views/Orders/Modify.vue'
+import Ord_Single from '../views/Orders/Single.vue'
 import Ord_History from '../views/Orders/History.vue'
 import Home from '../views/Home.vue'
 import Menus from '../views/Menus.vue'
@@ -106,8 +106,8 @@ const routes = [
         component: Ord_See
       },
       {
-        path: 'modify/:id',
-        component: Ord_Modify
+        path: 'single/:id',
+        component: Ord_Single
       },
       {
         path: 'history',

@@ -3,13 +3,15 @@
     elevation="3"
     height="75"
     width="50%"
-    :to="'modify/' + data._id"
+    :to="'single/' + data._id"
     :color="statusConvertToColor(data.status)"
   >
     <v-card-title>ID : {{ smallId }}</v-card-title>
-    <v-card-subtitle class="v-card-subtitle"
-      > <b>Client</b> : {{ users.client }} | <b>Delivery</b> : {{ users.delivery }} | <b>Status</b> :
-      {{ statusConvertToString(data.status) }} | <b>Creation date</b> : {{ data.created_at }}
+    <v-card-subtitle class="v-card-subtitle">
+      <b>Client</b> : {{ users.client }} | <b>Delivery</b> :
+      {{ users.delivery }} | <b>Status</b> :
+      {{ statusConvertToString(data.status) }} | <b>Creation date</b> :
+      {{ data.created_at }}
     </v-card-subtitle>
   </v-card>
 </template>
@@ -30,14 +32,14 @@ import { adr, header } from "../plugins/connection";
 
 export default {
   methods: {
-      statusConvertToString,
-      statusConvertToColor,
+    statusConvertToString,
+    statusConvertToColor,
   },
   name: "FoodCardModify",
 
   mounted() {
     axios({
-      url: adr + "orders/get/users",
+      url: adr + "orders/get/actors/all",
       data: {
         client_id: this.data.client_id,
         owner_id: this.data.owner_id,
@@ -55,14 +57,13 @@ export default {
       .catch((err) => {
         console.log(err);
       });
-
   },
 
   data() {
     return {
       isActive: false,
       smallId: this.data._id.substr(this.data._id.length - 5),
-      redirect: "modify/" + this.data._id,
+      redirect: "single/" + this.data._id,
       users: {
         client: "",
         owner: "",

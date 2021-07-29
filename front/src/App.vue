@@ -76,8 +76,8 @@
 .footer-uber-eats {
   text-align: center;
   position: fixed;
-  bottom: 50px;
-  margin-left:40%;
+  bottom: 20px;
+  right: 0px;
   width: 20%;
   z-index: 99;
 }
@@ -130,7 +130,6 @@ export default {
 
     this.token_is_valid = false;
     const token = localStorage.getItem("token");
-    console.log(token);
     if (token != null) {
       try {
         var decoded = jwt.verify(token, secret_key);

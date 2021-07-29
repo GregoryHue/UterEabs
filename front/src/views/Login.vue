@@ -31,6 +31,16 @@ import axios from "axios";
 import { adr, header } from "../plugins/connection";
 
 export default {
+  beforeMount() {
+    axios({
+      url: adr + "wakeup",
+      data: {
+        message:'wake up',
+      },
+      header: header,
+      method: "POST",
+    })
+  },
 
   data: () => ({
     valid: false,

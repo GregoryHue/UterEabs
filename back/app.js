@@ -1,6 +1,7 @@
 var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
+var bodyParser = require('body-parser')
 var logger = require("morgan");
 var cors = require("cors");
 
@@ -13,12 +14,13 @@ var articlesRouter = require("./routes/articles");
 var menusRouter = require("./routes/menus");
 var ordersRouter = require("./routes/orders");
 var indexRouter = require("./routes/index");
+var wakeupRouter = require("./routes/wakeup");
 
 var app = express();
 
 app.use(logger("dev"));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -39,5 +41,6 @@ app.use("/account", accountRouter);
 app.use("/articles", articlesRouter);
 app.use("/menus", menusRouter);
 app.use("/orders", ordersRouter);
+app.use("/wakeup", wakeupRouter);
 
 module.exports = app;

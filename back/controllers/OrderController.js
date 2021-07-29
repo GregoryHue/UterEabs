@@ -4,7 +4,27 @@ const Order = require("../models/OrderModel");
 const Menu = require("../models/MenuModel");
 const Article = require("../models/ArticleModel");
 
-const ActorsID = (req, res, next) => {
+const ActorsIDall = (req, res, next) => {
+  console.log(req.body);
+
+  mysql_connection.query(`SELECT * FROM users where id in (?, ?, ?)`, [req.body.client_id, req.body.owner_id, req.body.delivery_id],
+    function (err, user_data) {
+      if (err) {
+        console.log(err);
+        res.status(400).json({
+          message: "Error 2 :" + err,
+          user: "",
+        });
+      } else {
+        res.status(200).json({
+          user: user_data,
+        });
+      }
+    }
+  );
+};
+
+const ActorsIDsingle = (req, res, next) => {
   console.log(req.body);
 
   Order.find({ _id: req.body._id }).then(function (orders) {
@@ -92,7 +112,8 @@ const GoToNextStatus = (req, res, next) => {
 };
 
 module.exports = {
-  ActorsID,
+  ActorsIDall,
+  ActorsIDsingle,
   OrderContent,
   HistoryOrders,
   CurrentOrders,

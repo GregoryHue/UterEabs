@@ -4,7 +4,9 @@ const OrderController = require("../controllers/OrderController");
 
 var router = express.Router();
 
-router.post("/get/actors", OrderController.ActorsID);
+router.post("/get/actors/all", OrderController.ActorsIDall);
+
+router.post("/get/actors/single", OrderController.ActorsIDsingle);
 
 router.post("/get/food", OrderController.OrderContent);
 

@@ -1,8 +1,6 @@
-const adr = 'https://uber-eats-hrk.herokuapp.com/';
-
-console.log(process.env)
+const adr = 'http://localhost:3000/';
 const header = { 
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   }
 
 export { adr, header }

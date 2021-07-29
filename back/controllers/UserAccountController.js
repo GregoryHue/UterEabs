@@ -4,7 +4,6 @@ var jwt = require("jsonwebtoken");
 const mysql_connection = require("../plugins/mysql");
 
 const UserLogin = (req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
 
   console.log(req.body);
 
@@ -79,7 +78,6 @@ const UserLogin = (req, res, next) => {
 };
 
 const UserSignUp = (req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
 
   bcrypt.hash(req.body.password, 10).then((hash) => {
     console.log(req.body);
@@ -125,7 +123,6 @@ const UserSignUp = (req, res, next) => {
 };
 
 const UserModify = (req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
 
   console.log(req.body);
   bcrypt.hash(req.body.password, 10).then((hash) => {
@@ -175,7 +172,6 @@ const UserModify = (req, res, next) => {
 };
 
 const UserDelete = (req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
 
   console.log(req.body);
   var sql = `DELETE FROM users WHERE id = ?;`;
