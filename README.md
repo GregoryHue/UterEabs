@@ -111,7 +111,7 @@ SECRET_JWT=09f26e402586e2faa8da4c98a35f1b20d6b033c6097befa8be3486a829587fe2f90a8
 TOKEN_TIME=1d
 ```
 
-The API is hosted by [Heroku](https://dashboard.heroku.com/apps) on a project called `uber-eats-hrk`. From the root folder, open the CMD, log into Heroku, add a remote to the Heroku repository, and push the API there, using those commands:
+The API is hosted by [Heroku](https://dashboard.heroku.com/apps) on a project called `uber-eats-hrk`. From the `root` folder, open the CMD, log into Heroku, add a remote to the Heroku repository, and push the API there, using those commands:
 
 ```
 heroku login
