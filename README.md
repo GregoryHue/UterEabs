@@ -58,10 +58,10 @@ mongoimport -d uber_eats -c orders --authenticationDatabase admin --username roo
 
 ## Front
 
-Make sure the `/front/src/plugins/connection.js` file contains the following variables :
+Make sure the `/front/src/plugins/connection.js` file contains the following variable (notice the `http` instead of `https`):
 
 ```js
-const adr = 'https://localhost:3000/';
+const adr = 'http://localhost:3000/';
 ```
 
 To start the front, first, install the dependencies with :
@@ -123,7 +123,7 @@ git add . | git commit -m "changing remote" | git subtree push --prefix back her
 
 ## Front
 
-Make sure the `/front/src/plugins/connection.js` file contains the following variables :
+Make sure the `/front/src/plugins/connection.js` file contains the following variables (notice the `https` instead of `http`):
 
 ```js
 const adr = 'https://uber-eats-hrk.herokuapp.com/';
