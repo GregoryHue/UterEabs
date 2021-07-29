@@ -118,7 +118,7 @@ heroku login
 
 heroku git:remote -a uber-eats-hrk
 
-git add . | git commit -m "changing remote" | git subtree push --prefix back heroku main
+git add . | git commit -m "New commit" | git push origin main | git subtree push --prefix back heroku main
 ```
 
 ## Front
