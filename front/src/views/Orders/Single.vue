@@ -49,7 +49,7 @@
         Order ready to pick up
       </v-btn>
     </div>
-    <h1>{{ message }}</h1>
+    <Alert :message="this.message"/>
   </div>
 </template>
 
@@ -74,12 +74,14 @@ import { statusConvertToString } from "../../plugins/status";
 import InfoDisplayer from "../../components/InfoDisplayer.vue";
 import MenuCard from "../../components/MenuCard.vue";
 import FoodCard from "../../components/FoodCard.vue";
+import Alert from "../../components/Alert.vue";
 
 export default {
   components: {
     InfoDisplayer,
     MenuCard,
     FoodCard,
+    Alert,
   },
   methods: {
     statusConvertToString,
@@ -96,7 +98,7 @@ export default {
         .then((resp) => {
           console.log(resp);
           this.message = resp.data.message;
-          setInterval(() => (window.location.href = "/orders/see"), 1000);
+          setTimeout(() => (this.$router.replace({ path: '/orders/see'}).catch(err => {console.log(err)})), 3000);
         })
         .catch((err) => {
           console.log(err);

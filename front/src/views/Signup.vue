@@ -56,15 +56,19 @@
         </v-btn>
       </v-container>
     </v-form>
-    <h1>{{ message }}</h1>
+    <Alert :message="this.message" />
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import { adr, header } from "../plugins/connection";
+import Alert from "../components/Alert.vue";
 
 export default {
+  components: {
+    Alert,
+  },
   data: () => ({
     roles: ['Client', 'Restaurant', 'Dev', 'Delivery man'],
     valid: false,
@@ -108,7 +112,7 @@ export default {
         .then((resp) => {
           console.log(resp);
           this.message = resp.data.message;
-          setInterval(() => window.location.href = "/login", 3000)
+          setTimeout(() =>(window.location.href = "/login"),3000);
         })
         .catch((err) => {
           console.log(err);

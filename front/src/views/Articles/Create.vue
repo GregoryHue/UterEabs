@@ -31,10 +31,10 @@
           <v-btn :disabled="!valid" color="success" class="mr-4" type="submit">
             Create
           </v-btn>
-          <h1>{{ message }}</h1>
         </div>
       </v-form>
     </div>
+    <Alert :message="this.message"/>
   </div>
 </template>
 
@@ -47,8 +47,12 @@
 <script>
 import axios from "axios";
 import { adr, header } from "../../plugins/connection";
+import Alert from "../../components/Alert.vue";
 
 export default {
+  components:{
+    Alert,
+  },
   data() {
     return {
       message: "",
@@ -79,7 +83,7 @@ export default {
         .then((resp) => {
           console.log(resp);
           this.message = resp.data.message;
-          window.location.href = "/articles/see"
+          setTimeout(() => (this.$router.replace({ path: '/articles/see'}).catch(err => {console.log(err)})), 3000);
         })
         .catch((err) => {
           console.log(err);

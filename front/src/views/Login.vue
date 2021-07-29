@@ -22,24 +22,28 @@
         </v-btn>
       </v-container>
     </v-form>
-    <h1>{{ message }}</h1>
+    <Alert :message="this.message" />
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import { adr, header } from "../plugins/connection";
+import Alert from "../components/Alert.vue";
 
 export default {
+  components: {
+    Alert,
+  },
   beforeMount() {
     axios({
       url: adr + "wakeup",
       data: {
-        message:'wake up',
+        message: "wake up",
       },
       header: header,
       method: "POST",
-    })
+    });
   },
 
   data: () => ({
@@ -58,7 +62,7 @@ export default {
   }),
 
   methods: {
-    login: function () {
+    login: function() {
       console.log("sending request");
       axios({
         url: adr + "users/login/",
@@ -71,7 +75,7 @@ export default {
           this.message = resp.data.message;
           localStorage.setItem("token", resp.data.token);
           localStorage.setItem("user", JSON.stringify(resp.data.user));
-          setInterval(() => (window.location.href = "/home"), 3000);
+          setTimeout(() =>(window.location.href = "/home"),3000);
         })
         .catch((err) => {
           localStorage.removeItem("token");

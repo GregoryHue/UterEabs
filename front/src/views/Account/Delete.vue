@@ -5,15 +5,19 @@
     <v-container>
       <v-btn color="error" class="mr-4" @click="deleting"> Delete </v-btn>
     </v-container>
-    <h1>{{ message }}</h1>
+    <Alert :message="this.message"/>
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import { adr, header } from "../../plugins/connection";
+import Alert from "../../components/Alert.vue";
 
 export default {
+  components:{
+    Alert,
+  },
   data() {
     return {
       message:'',

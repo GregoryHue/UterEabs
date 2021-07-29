@@ -67,19 +67,22 @@
           <v-btn :disabled="!valid" color="success" class="mr-4" type="submit">
             Validate
           </v-btn>
-
-          <h1>{{ message }}</h1>
         </div>
       </v-form>
     </div>
+    <Alert :message="this.message"/>
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import { adr, header } from "../../plugins/connection";
+import Alert from "../../components/Alert.vue";
 
 export default {
+  components:{
+    Alert,
+  },
   mounted() {
     this.u_current.password = "";
   },
@@ -115,9 +118,9 @@ export default {
       })
         .then((resp) => {
           console.log(resp);
-          this.message = resp.data.message;
           localStorage.setItem("user", JSON.stringify(resp.data.user));
-          setInterval(() => (window.location.href = "/account/see"), 3000);
+          this.message = resp.data.message;
+          setTimeout(() => (this.$router.replace({ path: '/account/see'}).catch(err => {console.log(err)})), 3000);
         })
         .catch((err) => {
           console.log(err);
@@ -134,10 +137,10 @@ export default {
       })
         .then((resp) => {
           console.log(resp);
-          this.message = resp.data.message;
           localStorage.removeItem("token");
           localStorage.removeItem("user");
-          setInterval(() => (window.location.href = "/login"), 3000);
+          this.message = resp.data.message;
+          setTimeout(() => (this.$router.replace({ path: '/login'}).catch(err => {console.log(err)})), 3000);
         })
         .catch((err) => {
           localStorage.removeItem("token");

@@ -74,10 +74,10 @@
           <v-btn :disabled="!valid" color="success" class="mr-4" type="submit">
             Modify
           </v-btn>
-          <h1>{{ message }}</h1>
         </div>
       </v-form>
     </div>
+    <Alert :message="this.message"/>
   </div>
 </template>
 
@@ -91,10 +91,12 @@
 import axios from "axios";
 import { adr, header } from "../../plugins/connection";
 import FoodCard from "../../components/FoodCard.vue";
+import Alert from "../../components/Alert.vue";
 
 export default {
   components: {
     FoodCard,
+    Alert,
   },
   beforeMount() {
     axios({
@@ -146,7 +148,7 @@ export default {
         .then((resp) => {
           console.log(resp);
           this.message = resp.data.message;
-          setInterval(() => (window.location.href = "/menus/see"), 2000);
+          setTimeout(() => (this.$router.replace({ path: '/menus/see'}).catch(err => {console.log(err)})), 3000);
         })
         .catch((err) => {
           console.log(err);
@@ -165,7 +167,8 @@ export default {
       })
         .then((resp) => {
           console.log(resp);
-          setInterval(() => (window.location.href = "/menus/see"), 2000);
+          this.message = resp.data.message;
+          setTimeout(() => (this.$router.replace({ path: '/menus/see'}).catch(err => {console.log(err)})), 3000);
         })
         .catch((err) => {
           console.log(err);

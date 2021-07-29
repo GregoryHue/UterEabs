@@ -61,10 +61,9 @@
         <v-btn :disabled="!valid" color="success" class="mr-4" type="submit">
           Modify
         </v-btn>
-
-        <h1>{{ message }}</h1>
       </div>
     </v-form>
+    <Alert :message="this.message" />
   </div>
 </template>
 
@@ -77,8 +76,12 @@
 <script>
 import axios from "axios";
 import { adr, header } from "../../plugins/connection";
+import Alert from "../../components/Alert.vue";
 
 export default {
+  components: {
+    Alert,
+  },
   beforeMount() {
     axios({
       url: adr + "articles/see",
@@ -108,7 +111,13 @@ export default {
         .then((resp) => {
           console.log(resp);
           this.message = resp.data.message;
-          setInterval(() => (window.location.href = "/articles/see"), 2000);
+          setTimeout(
+            () =>
+              this.$router.replace({ path: "/articles/see" }).catch((err) => {
+                console.log(err);
+              }),
+            3000
+          );
         })
         .catch((err) => {
           console.log(err);
@@ -126,7 +135,14 @@ export default {
       })
         .then((resp) => {
           console.log(resp);
-          setInterval(() => (window.location.href = "/articles/see"), 2000);
+          this.message = resp.data.message;
+          setTimeout(
+            () =>
+              this.$router.replace({ path: "/articles/see" }).catch((err) => {
+                console.log(err);
+              }),
+            3000
+          );
         })
         .catch((err) => {
           console.log(err);
@@ -137,6 +153,7 @@ export default {
   data() {
     return {
       message: "",
+      toShow: false,
       item: {
         img: "",
         food_name: "",

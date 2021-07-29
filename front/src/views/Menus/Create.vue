@@ -45,7 +45,7 @@
           <v-btn :disabled="!valid || item.l_article.length <= 1" color="success" class="mr-4" type="submit">
             Create
           </v-btn>
-          <h1>{{ message }}</h1>
+    <Alert :message="this.message"/>
         </div>
       </v-form>
     </div>
@@ -76,9 +76,11 @@
 import axios from "axios";
 import { adr, header } from "../../plugins/connection";
 import FoodCard from "../../components/FoodCard.vue";
+import Alert from "../../components/Alert.vue";
 
 export default {
   components: {
+    Alert,
     FoodCard,
   },
   mounted() {
@@ -150,7 +152,7 @@ export default {
         .then((resp) => {
           console.log(resp);
           this.message = resp.data.message;
-          window.location.href = "/menus/see";
+          setTimeout(() => (this.$router.replace({ path: '/menus/see'}).catch(err => {console.log(err)})), 3000);
         })
         .catch((err) => {
           console.log(err);
