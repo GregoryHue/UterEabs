@@ -1,4 +1,4 @@
-# ProjectUberEat
+# UberEats
 
 There are two ways to make this application work :
 * Locally with the use of Docker. The API and the two databases each running on a different container.
