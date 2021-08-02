@@ -1,11 +1,22 @@
-# UberEats
+# Description
+
+This project is purely for educational purposes. The idea was to create a web-application in the type of Uber Eats, and deploy it. There are 3 actors :
+
+* The `client`, who create his order with articles and menus
+* The `restaurant`, who propose its articles and menus to purchase for the client
+* The `delivery man`, who deliver the order to the client
+
+For now, only the `restaurant` part has been covered.
+
+
+To visit the deployed version, visit this [link](https://uber-eats-nlf.netlify.app) and try to connect as `restaurant1@gmail.com:password`
+
+# UterEabs
 
 There are two ways to make this application work :
 
 * Locally with the use of Docker. The API and the two databases each running on a different container.
 * By deploying the application online  using Heroku and Netlify (inspired by [this](https://dev.to/stlnick/how-to-deploy-a-full-stack-mern-app-with-heroku-netlify-ncb))
-
-To visit the deployed version, visit this [link](https://uber-eats-nlf.netlify.app) and try to connect as `restaurant1@gmail.com:password`
 
 # Using Docker
 
