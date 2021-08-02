@@ -1,8 +1,11 @@
 # UberEats
 
 There are two ways to make this application work :
+
 * Locally with the use of Docker. The API and the two databases each running on a different container.
-* By deploying the application online ([here](https://uber-eats-nlf.netlify.app), try to connect as `restaurant1@gmail.com:password`) using Heroku and Netlify (inspired by [this](https://dev.to/stlnick/how-to-deploy-a-full-stack-mern-app-with-heroku-netlify-ncb))
+* By deploying the application online  using Heroku and Netlify (inspired by [this](https://dev.to/stlnick/how-to-deploy-a-full-stack-mern-app-with-heroku-netlify-ncb))
+
+To visit the deployed version, visit this [link](https://uber-eats-nlf.netlify.app) and try to connect as `restaurant1@gmail.com:password`
 
 # Using Docker
 
