@@ -132,7 +132,7 @@ heroku login
 
 heroku git:remote -a uter-eabs-hrk
 
-git add . | git commit -m "New commit" | git push origin main | git subtree push --prefix back heroku main
+git add . | git commit -m "Heroku update" | git push origin main | git subtree push --prefix back heroku main
 ```
 
 ## Front
