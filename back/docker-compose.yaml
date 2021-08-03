@@ -5,7 +5,7 @@ services:
     image: mysql
     environment:
       MYSQL_ROOT_PASSWORD: mdptrocool
-      MYSQL_DATABASE: uber_eats
+      MYSQL_DATABASE: uter_eabs
     ports:
       - 3307:3306
     volumes: 

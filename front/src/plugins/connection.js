@@ -1,4 +1,4 @@
-const adr = 'https://uber-eats-hrk.herokuapp.com/';
+const adr = 'https://uter-eabs-hrk.herokuapp.com/';
 
 const header = { 
     "Content-Type": "application/x-www-form-urlencoded",

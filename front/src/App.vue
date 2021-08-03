@@ -8,8 +8,8 @@
         <h1>{{ message }}</h1>
       </div>
 
-      <div class="footer-uber-eats">
-        <h1 class="uber-eats">Uber Eats</h1>
+      <div class="footer-uter-eabs">
+        <h1 class="uter-eabs">Uter Eabs</h1>
       </div>
     </v-main>
   </v-app>
@@ -29,7 +29,7 @@
   z-index: 98;
 }
 
-.footer-uber-eats {
+.footer-uter-eabs {
   text-align: center;
   position: fixed;
   bottom: 20px;
@@ -38,7 +38,7 @@
   z-index: 99;
 }
 
-.uber-eats {
+.uter-eabs {
   text-shadow: 2px 2px rgb(55, 148, 240);
   color: rgb(20, 20, 20);
   font-size: 40px;
