@@ -9,7 +9,7 @@ This project is purely for educational purposes. The idea was to create a web-ap
 For now, only the `restaurant` part has been covered.
 
 
-To visit the deployed version, visit this [link](https://uber-eats-nlf.netlify.app) and try to connect as `restaurant1@gmail.com:password`
+To visit the deployed version, visit this [link](https://uter-eabs-nlf.netlify.app) and try to connect as `restaurant1@gmail.com:password`
 
 # UterEabs
 
@@ -125,12 +125,12 @@ SECRET_JWT=09f26e402586e2faa8da4c98a35f1b20d6b033c6097befa8be3486a829587fe2f90a8
 TOKEN_TIME=1d
 ```
 
-The API is hosted by [Heroku](https://dashboard.heroku.com/apps) on a project called `uber-eats-hrk`. From the `root` folder, open the CMD, log into Heroku, add a remote to the Heroku repository, and push the API there, using those commands:
+The API is hosted by [Heroku](https://dashboard.heroku.com/apps) on a project called `uter-eabs-hrk`. From the `root` folder, open the CMD, log into Heroku, add a remote to the Heroku repository, and push the API there, using those commands:
 
 ```
 heroku login
 
-heroku git:remote -a uber-eats-hrk
+heroku git:remote -a uter-eabs-hrk
 
 git add . | git commit -m "New commit" | git push origin main | git subtree push --prefix back heroku main
 ```
@@ -140,10 +140,10 @@ git add . | git commit -m "New commit" | git push origin main | git subtree push
 Make sure the `/front/src/plugins/connection.js` file contains the following variables (notice the `https` instead of `http`):
 
 ```js
-const adr = 'https://uber-eats-hrk.herokuapp.com/';
+const adr = 'https://uter-eabs-hrk.herokuapp.com/';
 ```
 
-The front is hosted by [Netlify](https://app.netlify.com/teams/gregoryhue/overview) on a project called `uber-eats-nlf`. Go to their website and log in, click on "New site from Git", then link this very same Github project with it, and configure it this way:
+The front is hosted by [Netlify](https://app.netlify.com/teams/gregoryhue/overview) on a project called `uter-eabs-nlf`. Go to their website and log in, click on "New site from Git", then link this very same Github project with it, and configure it this way:
 
 ```
 Base directory : front
