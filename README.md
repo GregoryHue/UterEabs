@@ -11,6 +11,8 @@ For now, only the `restaurant` part has been covered.
 
 To visit the deployed version, visit this [link](https://uter-eabs-nlf.netlify.app) and try to connect as `restaurant1@gmail.com:password`
 
+Note: it's possible that logging in takes about 30 seconds as the SQL database needs to boot.
+
 # UterEabs
 
 There are two ways to make this application work :
