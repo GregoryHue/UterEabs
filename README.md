@@ -59,6 +59,10 @@ Both databases in both containers will be empty (which might makes the API crash
 Open the MySQL container CLI, then run this command :
 
 ```bash
+mysql -u root -p
+
+CREATE DATABASE uter_eabs;
+
 mysql -u root -p uter_eabs < data_host/data/database.sql
 ```
 
