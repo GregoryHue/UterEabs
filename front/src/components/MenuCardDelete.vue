@@ -9,8 +9,20 @@
     </template>
 
     <a :href="redirect">
-      <v-img height="150" :src="data.img"></v-img>
+      <v-img height="150" :src="data.img">
+        <template v-slot:placeholder>
+          <v-sheet
+            class="pa-3"
+          >
+            <v-skeleton-loader
+              class="mx-auto"
+              max-width="300"
+              type="card"
+            ></v-skeleton-loader>
+          </v-sheet> </template
+      ></v-img>
     </a>
+    
 
     <v-card-title>{{ data.menu_name }}</v-card-title>
 

@@ -3,10 +3,11 @@
     <div v-if="token" class="resto-nav-bar">
       <!--Final user-->
       <span v-if="user.role == 1">
-        <router-link to="/account">
+        <router-link to="/account/see">
           <v-icon>{{ svgPath }}</v-icon></router-link
         >
         <router-link to="/home">Home</router-link>
+        <router-link to="/buy">Buy</router-link>
       </span>
 
       <!--Restaurateur user-->
@@ -18,30 +19,6 @@
         <router-link to="/articles/see">Articles</router-link>
         <router-link to="/menus/see">Menus</router-link>
         <router-link to="/orders/see">Orders</router-link>
-      </span>
-
-      <!--Delivery user-->
-      <span v-if="user.role == 3">
-        <router-link to="/account">
-          <v-icon>{{ svgPath }}</v-icon></router-link
-        >
-        <router-link to="/home">Home</router-link>
-      </span>
-
-      <!--Dev user-->
-      <span v-if="user.role == 4">
-        <router-link to="/account">
-          <v-icon>{{ svgPath }}</v-icon></router-link
-        >
-        <router-link to="/home">Home</router-link>
-      </span>
-
-      <!--Admin user-->
-      <span v-if="user.role == 5">
-        <router-link to="/account">
-          <v-icon>{{ svgPath }}</v-icon></router-link
-        >
-        <router-link to="/home">Home</router-link>
       </span>
 
       <v-btn class="logout-button" color="error" v-on:click="logout"

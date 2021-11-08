@@ -13,6 +13,7 @@ import Ord_See from '../views/Orders/See.vue'
 import Ord_Single from '../views/Orders/Single.vue'
 import Ord_History from '../views/Orders/History.vue'
 import Home from '../views/Home.vue'
+import Buy from '../views/Buy.vue'
 import Menus from '../views/Menus.vue'
 import Men_Create from '../views/Menus/Create.vue'
 import Men_See from '../views/Menus/See.vue'
@@ -60,6 +61,11 @@ const routes = [
     path: '/home',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/buy',
+    name: 'Buy',
+    component: Buy
   },
   {
     path: '/menus',
