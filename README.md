@@ -69,6 +69,10 @@ mysql -u root -p uter_eabs < data_host/data/database.sql
 Open the MongoDB container CLI, then run those commands:
 
 ```bash
+mongo -u root
+
+db.createCollection("weather24h")
+
 mongoimport -d uter_eabs -c articles --authenticationDatabase admin --username root --password mdptrocool --file /data_host/data/articles.json  --jsonArray
 
 mongoimport -d uter_eabs -c menus --authenticationDatabase admin --username root --password mdptrocool --file /data_host/data/menus.json  --jsonArray
