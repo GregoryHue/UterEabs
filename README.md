@@ -71,7 +71,7 @@ Open the MongoDB container CLI, then run those commands:
 ```bash
 mongo -u root
 
-db.createCollection("weather24h")
+db.createCollection("uter_eabs")
 
 mongoimport -d uter_eabs -c articles --authenticationDatabase admin --username root --password mdptrocool --file /data_host/data/articles.json  --jsonArray
 
