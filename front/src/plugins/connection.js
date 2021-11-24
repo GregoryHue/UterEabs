@@ -1,4 +1,5 @@
-const adr = 'http://localhost:3000/';
+const adr = 'https://uter-eabs-hrk.herokuapp.com/';
+
 const header = { 
     "Content-Type": "application/x-www-form-urlencoded",
   }

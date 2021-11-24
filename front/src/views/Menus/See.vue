@@ -31,7 +31,7 @@
 <script>
 import axios from 'axios';
 import { adr, header } from "../../plugins/connection";
-import MenuCardModify from "../../components/MenuCardDelete.vue";
+import MenuCardModify from "../../components/Card/MenuCardDelete.vue";
 
 export default {
   components: {

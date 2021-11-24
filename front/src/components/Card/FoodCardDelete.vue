@@ -22,9 +22,8 @@
           </v-sheet> </template
       ></v-img>
     </a>
-    
 
-    <v-card-title>{{ data.menu_name }}</v-card-title>
+    <v-card-title>{{ data.food_name }}</v-card-title>
 
     <v-card-text>
       <v-row align="center" class="mx-0">
@@ -40,11 +39,11 @@
 
           <v-card>
             <v-card-title class="text-h5 grey lighten-2">
-              Menu deletion confirmation
+              Article deletion confirmation
             </v-card-title>
 
             <v-card-text>
-              Are you sure you want to delete this menu ?
+              Are you sure you want to delete this article ?
               <br />
               This action is irreversible.
             </v-card-text>
@@ -70,6 +69,10 @@
 </template>
 
 <style>
+.delete-icon {
+  float: right;
+}
+
 .card-description {
   white-space: nowrap;
   overflow: hidden;
@@ -79,11 +82,11 @@
 
 <script>
 import axios from "axios";
-import { adr, header } from "../plugins/connection";
+import { adr, header } from "../../plugins/connection";
 import { mdiDeleteForever } from "@mdi/js";
 
 export default {
-  name: "MenuCardDelete",
+  name: "FoodCardDelete",
   data() {
     return {
       openedDialog: false,
@@ -97,7 +100,7 @@ export default {
       _id: {
         type: Array,
       },
-      menu_name: {
+      food_name: {
         type: Array,
       },
       price: {
@@ -114,7 +117,7 @@ export default {
   methods: {
     deleteItem: function(id) {
       axios({
-        url: adr + "menus/delete",
+        url: adr + "articles/delete",
         data: {
           _id: id,
         },

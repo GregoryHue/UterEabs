@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>single</h1>
     <h3>Article</h3>
     <div v-if="article_products.length != 0" class="articles-selecter">
       <div
@@ -72,8 +71,8 @@ import axios from "axios";
 import { adr, header } from "../../plugins/connection";
 import { statusConvertToString } from "../../plugins/status";
 import InfoDisplayer from "../../components/InfoDisplayer.vue";
-import MenuCard from "../../components/MenuCard.vue";
-import FoodCard from "../../components/FoodCard.vue";
+import MenuCard from "../../components/Card/MenuCard.vue";
+import FoodCard from "../../components/Card/FoodCard.vue";
 import Alert from "../../components/Alert.vue";
 
 export default {
