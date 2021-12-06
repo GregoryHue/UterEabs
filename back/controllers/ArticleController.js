@@ -42,7 +42,7 @@ const ModifyArticles = (req, res, next) => {
 const DeleteArticles = (req, res, next) => {
   console.log(req.body);
   Article.deleteOne({ _id: req.body._id }).then(function (articles) {
-    res.json({ message: "" + req.body.food_name + " deleted" });
+    res.json({ message: "Article deleted !" });
   });
 };
 

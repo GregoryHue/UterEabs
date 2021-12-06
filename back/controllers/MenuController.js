@@ -39,7 +39,7 @@ const ModifyMenus = (req, res, next) => {
 const DeleteMenus = (req, res, next) => {
   console.log(req.body);
   Menu.deleteOne({ _id: req.body._id }).then(function (menus) {
-    res.json({ message: "" + req.body.menu_name + " deleted" });
+    res.json({ message: "Menu deleted !" });
   });
 };
 

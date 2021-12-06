@@ -14,6 +14,7 @@ var articlesRouter = require("./routes/articles");
 var menusRouter = require("./routes/menus");
 var ordersRouter = require("./routes/orders");
 var indexRouter = require("./routes/index");
+var buyRouter = require("./routes/buy");
 var wakeupRouter = require("./routes/wakeup");
 
 var app = express();
@@ -41,6 +42,7 @@ app.use("/account", accountRouter);
 app.use("/articles", articlesRouter);
 app.use("/menus", menusRouter);
 app.use("/orders", ordersRouter);
+app.use("/buy", buyRouter);
 app.use("/wakeup", wakeupRouter);
 
 module.exports = app;
